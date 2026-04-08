@@ -2,11 +2,9 @@ import os
 import logging
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, MessageHandler, filters
-from dotenv import load_dotenv
 from document_reader import DocumentReader
-from claude_handler import ClaudeHandler
-
-load_dotenv()
+from openrouter_handler import OpenRouterHandler
+import config
 
 # Enable logging
 logging.basicConfig(
@@ -15,8 +13,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Initialize Claude handler
-claude = ClaudeHandler()
+# Initialize OpenRouter handler later after environment validation
+openrouter = None
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """
@@ -80,8 +78,8 @@ async def handle_document(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.message.reply_text("Could not extract text from the document.")
             return
 
-        # Analyze with Claude
-        analysis = claude.analyze_text(text)
+        # Analyze with OpenRouter
+        analysis = openrouter.analyze_text(text)
 
         # Send response
         await update.message.reply_text(analysis)
@@ -98,12 +96,15 @@ def main():
     """
     Main function to run the bot.
     """
-    token = os.getenv('TELEGRAM_TOKEN')
-    if not token:
-        logger.error("TELEGRAM_TOKEN not found in environment variables.")
+    try:
+        config.validate_environment()
+    except EnvironmentError as e:
+        logger.error(str(e))
         return
 
-    application = ApplicationBuilder().token(token).build()
+    global openrouter
+    openrouter = OpenRouterHandler()
+    application = ApplicationBuilder().token(config.TELEGRAM_TOKEN).build()
 
     # Add handlers
     application.add_handler(CommandHandler("start", start))

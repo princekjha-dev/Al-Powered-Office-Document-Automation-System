@@ -1,13 +1,13 @@
 # AI-Powered Office Document Automation System
 
-A Telegram bot that automates office document analysis using Claude AI API.
+A Telegram bot that automates office document analysis using AI APIs.
 
 ## Features
 
 - Accept PDF, Word (.docx), Excel (.xlsx) files
 - Auto-detect file type and process accordingly
 - Extract text from documents
-- Send text to Claude API for analysis
+- Send text to OpenRouter, OpenAI, Groq, or Gemii APIs for analysis
 - Return: Summary, 5 Key Points, 1 Smart Insight, Action Items
 
 ## Commands
@@ -19,10 +19,11 @@ A Telegram bot that automates office document analysis using Claude AI API.
 
 - Python 3.10+
 - python-telegram-bot library
-- anthropic library (Claude API)
+- requests (for OpenRouter API requests)
 - PyPDF2 (for PDF reading)
 - python-docx (for Word files)
 - openpyxl (for Excel files)
+- python-dotenv (for environment variables)
 
 ## Setup
 
@@ -31,9 +32,19 @@ A Telegram bot that automates office document analysis using Claude AI API.
 3. Create a `.env` file with your API keys:
    ```
    TELEGRAM_TOKEN=your_telegram_bot_token_here
-   CLAUDE_API_KEY=your_claude_api_key_here
+   OPENROUTER_API_KEY=your_openrouter_api_key_here
+   OPENROUTER_MODEL=gpt-4o-mini
+   OPENAI_API_KEY=your_openai_api_key_here
+   GROQ_API_KEY=your_groq_api_key_here
+   GEMII_API_KEY=your_gemii_api_key_here
+   AI_PROVIDER=openrouter
    ```
 4. Run the bot: `python bot.py`
+
+## Configuration
+
+- `config.py` centralizes environment variables for all supported AI providers.
+- `AI_PROVIDER` is optional and defaults to `openrouter`.
 
 ## Error Handling
 
@@ -45,6 +56,8 @@ A Telegram bot that automates office document analysis using Claude AI API.
 
 - `bot.py` - Main bot logic
 - `document_reader.py` - File parsing
-- `claude_handler.py` - API calls
+- `openrouter_handler.py` - OpenRouter API calls
+- `config.py` - Environment configuration and API keys
 - `.env` - API keys (not committed)
+- `.env.example` - Example environment variables
 - `requirements.txt` - Dependencies
