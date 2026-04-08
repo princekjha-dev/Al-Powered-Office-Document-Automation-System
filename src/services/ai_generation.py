@@ -103,6 +103,22 @@ class AIGenerationService:
         response = self._make_request(prompt, max_tokens=500)
         return response.split('\n') if response else []
 
+    def call_ai(self, prompt, system_role="You are a helpful assistant", 
+               max_tokens=1000, temperature=0.7):
+        """
+        Generic AI call method for use by other services.
+        
+        Args:
+            prompt: User prompt
+            system_role: System role
+            max_tokens: Maximum tokens
+            temperature: Temperature
+        
+        Returns:
+            AI response
+        """
+        return self._make_request(prompt, system_role, max_tokens, temperature)
+
     def verify_response(self, response_text, source_text):
         """
         Verify generated response against source content to catch hallucinations.

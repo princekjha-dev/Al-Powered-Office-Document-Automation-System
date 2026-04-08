@@ -7,6 +7,7 @@ Core features:
 - Al-powered insights and summarization
 - Image generation from documents
 - Image gallery management
+- Advanced: Document chat (RAG), Comparison, Auto-categorization, Language detection, Quality scoring
 """
 
 import os
@@ -31,6 +32,11 @@ from src.services.document_generator import DocumentGenerator
 from src.services.image_generator import ImageGenerator
 from src.services.image_gallery import ImageGalleryService
 from src.services.ai_generation import AIGenerationService
+from src.services.document_chat import DocumentChat
+from src.services.document_comparison import DocumentComparison
+from src.services.document_categorization import DocumentCategorization
+from src.services.language_detection import LanguageDetection
+from src.services.document_quality import DocumentQuality
 
 # Setup logging
 setup_logging(log_level=Config.LOG_LEVEL)
@@ -39,6 +45,8 @@ logger = get_logger(__name__)
 # Conversation states
 GENERATE_TOPIC, GENERATE_FORMAT = range(2)
 IMAGE_PROMPT, IMAGE_STYLE = range(2, 4)
+CHAT_SESSION, CHAT_QUESTION = range(4, 6)
+COMPARE_DOC1, COMPARE_DOC2 = range(6, 8)
 
 # Services container
 class Services:
@@ -47,6 +55,11 @@ class Services:
     ai_service: Optional[AIGenerationService] = None
     image_service: Optional[ImageGenerator] = None
     gallery_service: Optional[ImageGalleryService] = None
+    doc_chat: Optional[DocumentChat] = None
+    doc_comparison: Optional[DocumentComparison] = None
+    doc_category: Optional[DocumentCategorization] = None
+    language_detection: Optional[LanguageDetection] = None
+    doc_quality: Optional[DocumentQuality] = None
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -76,11 +89,18 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
         "📚 *Commands*\n\n"
         "*Documents:*\n"
         "📄 Send any file (PDF/DOCX/XLSX) → get AI analysis\n"
-        "/generate - Create a document\n\n"
+        "/generate - Create a document\n"
+        "/compare - Compare two documents\n"
+        "/category - Categorize document\n"
+        "/quality - Check document quality\n\n"
+        "*Chat & Q&A:*\n"
+        "/ask - Ask questions about documents\n\n"
         "*Images:*\n"
         "/image - Generate an image\n"
-        "/gallery - View images\n"
-        "/stats - Your statistics\n\n"
+        "/gallery - View images\n\n"
+        "*Other:*\n"
+        "/stats - Your statistics\n"
+        "/language - Detect & translate\n"
         "/cancel - Stop current operation"
     )
     await update.message.reply_text(help_text, parse_mode='Markdown')
@@ -104,25 +124,41 @@ async def handle_document(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         await file.download_to_drive(file_path)
 
         try:
-            # Extract and analyze
+            # Extract text
             text = DocumentReader.extract_text(file_path)
             if not text.strip():
                 await update.message.reply_text("❌ Could not extract text from file")
                 return
             
+            # Detect language
+            lang_info = Services.language_detection.get_language_info(text)
+            await update.message.reply_text(lang_info, parse_mode='Markdown')
+            
+            # Categorize document
+            category_report = Services.doc_category.get_categorization_report(text, Services.ai_service)
+            await update.message.reply_text(category_report, parse_mode='Markdown')
+            
+            # Check quality
+            quality_report = Services.doc_quality.get_quality_report(text)
+            await update.message.reply_text(quality_report, parse_mode='Markdown')
+            
+            # AI analysis
             analysis = Services.ai_service.analyze_document(text)
             await update.message.reply_text(f"✅ *Analysis:*\n\n{analysis}", parse_mode='Markdown')
             
-            # Ask about image generation
-            keyboard = [['🎨 Generate Images', '❌ Skip']]
+            # Store document for chat
+            session_id = Services.doc_chat.create_session(text, user_id)
+            context.user_data['current_doc_session'] = session_id
+            context.user_data['last_doc_text'] = text
+            
+            # Ask about next action
+            keyboard = [['🎨 Images', '💬 Ask', '🔍 Compare'], ['❌ Done']]
             reply_markup = ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
             await update.message.reply_text(
-                "Generate images from this document?",
+                "What would you like to do?",
                 reply_markup=reply_markup
             )
             
-            # Store document text
-            context.user_data['last_doc_text'] = text
             Services.user_manager.update_user_statistics(user_id, documents_processed=1)
             
         finally:
@@ -131,6 +167,129 @@ async def handle_document(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
                 
     except Exception as e:
         logger.error(f"Document error: {e}")
+        await update.message.reply_text(f"❌ Error: {str(e)}")
+
+
+async def handle_response_action(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Handle user choice after document analysis."""
+    choice = update.message.text
+    reply_markup = ReplyKeyboardRemove()
+    
+    if choice == '🎨 Images':
+        await update.message.reply_text("🔄 Generating images...", reply_markup=reply_markup)
+        await handle_generate_images_v2(update, context)
+    elif choice == '💬 Ask':
+        await update.message.reply_text(
+            "💬 Ask a question about the document:",
+            reply_markup=reply_markup
+        )
+        context.user_data['in_chat_mode'] = True
+    elif choice == '🔍 Compare':
+        await update.message.reply_text(
+            "📄 Send the document to compare with:",
+            reply_markup=reply_markup
+        )
+        context.user_data['comparing'] = True
+    else:
+        await update.message.reply_text("✅ Done!", reply_markup=reply_markup)
+
+
+async def handle_document_questions(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Handle document chat questions."""
+    if context.user_data.get('in_chat_mode'):
+        question = update.message.text
+        session_id = context.user_data.get('current_doc_session')
+        
+        if not session_id:
+            await update.message.reply_text("❌ No active document session. Please send a document first.")
+            context.user_data['in_chat_mode'] = False
+            return
+        
+        await update.message.reply_text("💭 Thinking...")
+        
+        try:
+            answer = Services.doc_chat.answer_question(session_id, question, Services.ai_service)
+            await update.message.reply_text(f"🤖 *Answer:*\n\n{answer}", parse_mode='Markdown')
+            
+            await update.message.reply_text(
+                "Ask another question? (or /cancel)",
+                reply_markup=ReplyKeyboardMarkup([['❌ Done']], one_time_keyboard=True)
+            )
+        except Exception as e:
+            logger.error(f"Chat error: {e}")
+            await update.message.reply_text(f"❌ Error: {str(e)}")
+    
+    elif context.user_data.get('comparing'):
+        # Store second document for comparison
+        context.user_data['doc2_text'] = update.message.text
+        doc1_text = context.user_data.get('last_doc_text', '')
+        doc2_text = context.user_data.get('doc2_text', '')
+        
+        if doc1_text and doc2_text:
+            await update.message.reply_text("🔍 Comparing documents...")
+            
+            try:
+                report = Services.doc_comparison.generate_comparison_report(
+                    doc1_text, doc2_text, Services.ai_service
+                )
+                
+                summary = report.get('summary', '')
+                changes = report.get('key_changes', '')
+                
+                await update.message.reply_text(summary, parse_mode='Markdown')
+                await update.message.reply_text(changes, parse_mode='Markdown')
+                
+                if 'semantic_analysis' in report:
+                    await update.message.reply_text(
+                        f"🧠 *Semantic Analysis:*\n\n{report['semantic_analysis']}",
+                        parse_mode='Markdown'
+                    )
+                
+                context.user_data['comparing'] = False
+            except Exception as e:
+                logger.error(f"Comparison error: {e}")
+                await update.message.reply_text(f"❌ Error: {str(e)}")
+
+
+async def handle_generate_images_v2(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Generate images from document (new version)."""
+    user_id = update.effective_user.id
+    text = context.user_data.get('last_doc_text', '')
+    
+    if not text:
+        await update.message.reply_text("No document in memory")
+        return
+
+    try:
+        # Generate image prompts from document
+        prompts = Services.ai_service.generate_image_prompts(text, count=2)
+        
+        for i, prompt in enumerate(prompts, 1):
+            await update.message.reply_text(f"📸 Image {i}/2...")
+            image_path = Services.image_service.generate_from_prompt(prompt, "realistic")
+            
+            # Add to gallery
+            Services.gallery_service.add_image(
+                user_id, image_path, prompt,
+                tags=['document', 'auto'], style='realistic'
+            )
+            
+            # Send image
+            with open(image_path, 'rb') as f:
+                await update.message.reply_photo(
+                    photo=f,
+                    caption=f"_{prompt}_",
+                    parse_mode='Markdown'
+                )
+            
+            if os.path.exists(image_path):
+                os.remove(image_path)
+        
+        Services.user_manager.update_user_statistics(user_id, images_generated=2)
+        await update.message.reply_text("✅ Images saved to gallery!")
+        
+    except Exception as e:
+        logger.error(f"Image generation error: {e}")
         await update.message.reply_text(f"❌ Error: {str(e)}")
 
 
@@ -365,8 +524,13 @@ async def main() -> None:
         Services.ai_service = AIGenerationService()
         Services.image_service = ImageGenerator()
         Services.gallery_service = ImageGalleryService(Services.storage)
+        Services.doc_chat = DocumentChat(data_dir=os.path.join(Config.DATA_DIR, 'chat_sessions'))
+        Services.doc_comparison = DocumentComparison()
+        Services.doc_category = DocumentCategorization()
+        Services.language_detection = LanguageDetection()
+        Services.doc_quality = DocumentQuality()
         
-        logger.info("✅ Services ready")
+        logger.info("✅ All services initialized")
         
         # Create application
         application = ApplicationBuilder().token(Config.TELEGRAM_TOKEN).build()
@@ -402,16 +566,22 @@ async def main() -> None:
         # Document upload
         application.add_handler(MessageHandler(filters.Document.ALL, handle_document))
         
-        # Image generation prompt
+        # Document chat/Q&A handler
         application.add_handler(MessageHandler(
-            filters.TEXT & (filters.Regex("🎨|Skip")),
-            handle_generate_images
+            filters.TEXT & ~filters.COMMAND,
+            handle_document_questions
+        ))
+        
+        # Response action buttons
+        application.add_handler(MessageHandler(
+            filters.TEXT & (filters.Regex(r"🎨|💬|🔍|Done")),
+            handle_response_action
         ))
         
         # Error handler
         application.add_error_handler(error_handler)
         
-        logger.info("🚀 Bot running...")
+        logger.info("🚀 Bot running with advanced features...")
         await application.run_polling()
         
     except Exception as e:
@@ -422,407 +592,16 @@ async def main() -> None:
 if __name__ == '__main__':
     import asyncio
     asyncio.run(main())
-    
-    await update.message.reply_text(
-        f"Welcome {user.first_name}! 👋\n\n"
-        "This is your Al-powered Document & Image Assistant.\n"
-        "Send documents for analysis, generate new documents, or create images.\n"
-        "Use /help for all available commands."
-    )
-
-
-async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Handle /help command."""
-    help_text = (
-        "🤖 *Al-powered Document & Image Assistant*\n\n"
-        "*Document Features:*\n"
-        "📄 Send documents (PDF, DOCX, XLSX) for:\n"
-        "   • AI analysis & summary\n"
-        "   • Key points & insights\n"
-        "   • Built-in hallucination reduction and source grounding\n\n"
-        "✏️ `/generate` - Create Al-powered documents\n"
-        "   • Choose format (Word/PDF)\n\n"
-        "*Image Generation:*\n"
-        "🎨 `/image` - Generate images from prompts\n"
-        "📸 `/gallery` - View your generated images\n"
-        "📊 `/gallery_stats` - Gallery statistics\n\n"
-        "*Settings:*\n"
-        "/cancel - Cancel current operation"
-    )
-    await update.message.reply_text(help_text, parse_mode='Markdown')
-
-
-async def handle_document(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Handle uploaded documents."""
-    user_id = update.effective_user.id
-    document = update.message.document
-    
-    if not document:
-        await update.message.reply_text("Please send a document file.")
-        return
-
-    file_name = document.file_name
-    
-    # Check supported file type
-    if not DocumentReader.is_supported_file(file_name):
-        await update.message.reply_text("❌ Unsupported file type (PDF, DOCX, XLSX only)")
-        return
-
-    # Download file
-    file = await context.bot.get_file(document.file_id)
-    file_path = os.path.join(Config.TEMP_DIR, file_name)
-    await file.download_to_drive(file_path)
-
-    try:
-        # Check file size
-        if not DocumentReader.check_file_size(file_path):
-            await update.message.reply_text(f"❌ File too large (max: {Config.MAX_FILE_SIZE_MB}MB)")
-            return
-
-        await update.message.reply_text("🔄 Analyzing your document...")
-        
-        # Extract text
-        text = DocumentReader.extract_text(file_path)
-        if not text.strip():
-            await update.message.reply_text("❌ Could not extract text from document")
-            return
-
-        # Analyze with AI
-        analysis = BotServices.ai_service.analyze_document(text)
-        await update.message.reply_text(analysis)
-
-        # Store for image generation
-        context.user_data['last_document_text'] = text
-
-        # Update user statistics
-        BotServices.user_manager.update_user_statistics(user_id, documents_processed=1)
-
-        # Offer image generation
-        if Config.IMAGE_GENERATION_ENABLED:
-            keyboard = [['🎨 Generate Images', '❌ Skip']]
-            reply_markup = ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
-            await update.message.reply_text(
-                "Would you like to generate images from this document?",
-                reply_markup=reply_markup
-            )
-
-    except Exception as e:
-        logger.error(f"Error processing document: {e}")
-        await update.message.reply_text(f"❌ Error: {str(e)}")
-    finally:
-        if os.path.exists(file_path):
-            os.remove(file_path)
-
-
-async def generate_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Start document generation."""
-    await update.message.reply_text(
-        "📝 *Document Generator*\n\n"
-        "What would you like to generate a document about?\n"
-        "Example: 'Python best practices', 'Marketing strategy 2024'"
-    )
-    return GENERATE_TOPIC
-
-
-async def generate_topic_received(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Receive document topic."""
-    topic = update.message.text
-    context.user_data['topic'] = topic
-    
-    keyboard = [['Word (.docx)', 'PDF']]
-    reply_markup = ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
-    
-    await update.message.reply_text(
-        f"Great! Topic: *{topic}*\n\nChoose format:",
-        reply_markup=reply_markup,
-        parse_mode='Markdown'
-    )
-    return GENERATE_FORMAT
-
-
-async def generate_format_received(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Generate and send document."""
-    user_id = update.effective_user.id
-    format_choice = update.message.text
-    topic = context.user_data.get('topic', 'Document')
-    
-    await update.message.reply_text("⏳ Generating document...", reply_markup=ReplyKeyboardRemove())
-    
-    try:
-        # Generate content
-        content = BotServices.ai_service.generate_document(topic)
-        
-        # Create document
-        if 'Word' in format_choice:
-            file_path = DocumentGenerator.generate_docx(topic, content, output_dir=Config.TEMP_DIR)
-        else:
-            file_path = DocumentGenerator.generate_pdf(topic, content, output_dir=Config.TEMP_DIR)
-        
-        # Send document
-        with open(file_path, 'rb') as f:
-            await update.message.reply_document(
-                document=f,
-                caption=f"✅ Document created!\n*Topic:* {topic}\n*Format:* {format_choice}",
-                parse_mode='Markdown'
-            )
-        
-        # Update statistics
-        BotServices.user_manager.update_user_statistics(user_id, documents_generated=1)
-        
-        if os.path.exists(file_path):
-            os.remove(file_path)
-        
-        await update.message.reply_text("Use /generate to create another document")
-        
-    except Exception as e:
-        logger.error(f"Error generating document: {e}")
-        await update.message.reply_text(f"❌ Error: {str(e)}")
-    
-    return ConversationHandler.END
-
-
-async def image_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Start image generation."""
-    await update.message.reply_text(
-        "🎨 *Image Generator*\n\n"
-        "Describe the image you want:\n"
-        "Example: 'A futuristic city with neon lights'"
-    )
-    return IMAGE_PROMPT
-
-
-async def image_prompt_received(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Receive image prompt."""
-    prompt = update.message.text
-    context.user_data['image_prompt'] = prompt
-    
-    keyboard = [['Realistic', 'Abstract'], ['Artistic', 'Skip']]
-    reply_markup = ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
-    
-    await update.message.reply_text(
-        f"Image: *{prompt}*\n\nChoose style:",
-        reply_markup=reply_markup,
-        parse_mode='Markdown'
-    )
-    return IMAGE_STYLE
-
-
-async def image_style_received(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Generate image."""
-    user_id = update.effective_user.id
-    style = update.message.text.lower().split()[0]
-    prompt = context.user_data.get('image_prompt', 'artwork')
-    
-    style_map = {'realistic': 'realistic', 'abstract': 'abstract', 'artistic': 'artistic', 'skip': None}
-    style = style_map.get(style, 'realistic')
-    
-    if style is None:
-        await update.message.reply_text("Skipped. Use /image anytime.", reply_markup=ReplyKeyboardRemove())
-        return ConversationHandler.END
-    
-    await update.message.reply_text("🔄 Generating image...", reply_markup=ReplyKeyboardRemove())
-    
-    try:
-        # Generate image
-        image_path = BotServices.image_service.generate_from_prompt(
-            prompt, style, output_dir=Config.TEMP_DIR
-        )
-        
-        # Add to gallery
-        entry = BotServices.gallery_service.add_image(
-            user_id, image_path, prompt,
-            tags=['user-generated', style], style=style
-        )
-        
-        # Send image
-        with open(image_path, 'rb') as f:
-            await update.message.reply_photo(
-                photo=f,
-                caption=f"✅ Generated!\n*ID:* {entry['id']}\n*Style:* {style}"
-            )
-        
-        # Update statistics
-        BotServices.user_manager.update_user_statistics(user_id, images_generated=1)
-        
-        if os.path.exists(image_path):
-            os.remove(image_path)
-        
-    except Exception as e:
-        logger.error(f"Error generating image: {e}")
-        await update.message.reply_text(f"❌ Error: {str(e)}")
-    
-    await update.message.reply_text("Use /image to generate more")
-    return ConversationHandler.END
-
-
-async def gallery_view(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Display user's gallery."""
-    user_id = update.effective_user.id
-    images = BotServices.gallery_service.get_gallery_summary(user_id, limit=5)
-    
-    if not images:
-        await update.message.reply_text("📸 Your gallery is empty. Use /image to generate images.")
-        return
-    
-    message = "📸 *Your Images*\n\n"
-    for img in images:
-        message += f"• {img['filename']} - {img['style']}\n"
-    
-    await update.message.reply_text(message)
-
-
-async def gallery_stats(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Show gallery statistics."""
-    user_id = update.effective_user.id
-    
-    try:
-        images_count = BotServices.storage.get_user_images_count(user_id)
-        storage_size = BotServices.storage.get_user_gallery_size(user_id)
-        
-        from src.utils.helpers import format_file_size
-        
-        stats_text = (
-            f"📊 *Gallery Statistics*\n\n"
-            f"Total Images: {images_count}\n"
-            f"Storage Used: {format_file_size(storage_size)}\n"
-            f"Last Updated: Just now"
-        )
-        
-        await update.message.reply_text(stats_text, parse_mode='Markdown')
-    except Exception as e:
-        logger.error(f"Error getting gallery stats: {e}")
-        await update.message.reply_text(f"❌ Error: {str(e)}")
-
-
-async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
-    """Cancel current operation."""
-    await update.message.reply_text(
-        "Operation cancelled.",
-        reply_markup=ReplyKeyboardRemove()
-    )
-    return ConversationHandler.END
-
-
-async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Handle errors."""
-    logger.error(f"Exception while handling an update: {context.error}")
-    if update and update.message:
-        await update.message.reply_text(
-            "❌ An error occurred. Please try again or contact support."
-        )
-
-
-async def main() -> None:
-    """Start the bot."""
-    try:
-        Config.validate()
-        Config.create_directories()
-        
-        # Initialize services
-        BotServices.user_manager = UserManager(data_dir=Config.USERS_DIR)
-        BotServices.storage = UserGalleryStorage(base_dir=Config.GALLERIES_DIR)
-        BotServices.sessions = SessionStorage(data_dir=Config.SESSIONS_DIR)
-        BotServices.ai_service = AIGenerationService()
-        BotServices.image_service = ImageGenerator()
-        BotServices.gallery_service = ImageGalleryService(BotServices.storage)
-        
-        logger.info("All services initialized")
-        
-        # Create application
-        application = ApplicationBuilder().token(Config.TELEGRAM_TOKEN).build()
-        
-        # Add handlers
-        application.add_handler(CommandHandler("start", start))
-        application.add_handler(CommandHandler("help", help_command))
-        application.add_handler(CommandHandler("gallery", gallery_view))
-        application.add_handler(CommandHandler("gallery_stats", gallery_stats))
-        
-        # Document conversation
-        document_conv = ConversationHandler(
-            entry_points=[CommandHandler("generate", generate_start)],
-            states={
-                GENERATE_TOPIC: [MessageHandler(filters.TEXT & ~filters.COMMAND, generate_topic_received)],
-                GENERATE_FORMAT: [MessageHandler(filters.TEXT & ~filters.COMMAND, generate_format_received)],
-            },
-            fallbacks=[CommandHandler("cancel", cancel)],
-        )
-        application.add_handler(document_conv)
-        
-        # Image conversation
-        image_conv = ConversationHandler(
-            entry_points=[CommandHandler("image", image_start)],
-            states={
-                IMAGE_PROMPT: [MessageHandler(filters.TEXT & ~filters.COMMAND, image_prompt_received)],
-                IMAGE_STYLE: [MessageHandler(filters.TEXT & ~filters.COMMAND, image_style_received)],
-            },
-            fallbacks=[CommandHandler("cancel", cancel)],
-        )
-        application.add_handler(image_conv)
-        
-        # Document upload handler
-        application.add_handler(MessageHandler(filters.Document.ALL, handle_document))
-        
-        # Error handler
-        application.add_error_handler(error_handler)
-        
-        # Start polling
-        logger.info("Bot started polling...")
-        await application.run_polling()
-        
-    except Exception as e:
-        logger.error(f"Failed to start bot: {e}")
-        raise
 
 
 if __name__ == '__main__':
     import asyncio
     asyncio.run(main())
-        message += f"*ID:* {img['id']}\n*Prompt:* {img['prompt'][:40]}...\n*Style:* {img['style']}\n\n"
-    
-    await update.message.reply_text(message, parse_mode='Markdown')
 
 
-async def gallery_stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Display gallery statistics."""
-    user_id = update.effective_user.id
-    stats = BotServices.gallery_service.get_gallery_stats(user_id)
-    
-    message = (
-        "📊 *Your Statistics*\n\n"
-        f"Total Images: {stats['total_images']}\n"
-        f"Total Downloads: {stats['total_downloads']}\n"
-        f"Gallery Size: {stats['gallery_size'] / 1024 / 1024:.2f} MB\n"
-    )
-    
-    await update.message.reply_text(message, parse_mode='Markdown')
-
-
-async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Cancel operation."""
-    await update.message.reply_text("Cancelled.", reply_markup=ReplyKeyboardRemove())
-    return ConversationHandler.END
-
-
-def main():
-    """Main bot function."""
-    
-    try:
-        Config.validate()
-        Config.create_directories()
-    except EnvironmentError as e:
-        logger.error(f"Configuration error: {e}")
-        return
-
-    logger.info("Starting bot...")
-    
-    # Initialize services
-    BotServices.user_manager = UserManager(Config.USERS_DIR)
-    BotServices.storage = UserGalleryStorage(Config.GALLERIES_DIR)
-    BotServices.sessions = SessionStorage(Config.SESSIONS_DIR)
-    BotServices.ai_service = AIGenerationService()
-    
-    if Config.IMAGE_GENERATION_ENABLED:
-        BotServices.image_service = ImageGenerator(Config.HUGGINGFACE_API_KEY)
+if __name__ == '__main__':
+    import asyncio
+    asyncio.run(main())
         BotServices.gallery_service = ImageGalleryService(BotServices.storage)
         logger.info("Image generation enabled")
     
