@@ -1,7 +1,12 @@
+"""
+Document reading service - Extract text from various file formats.
+"""
+
 import os
 from PyPDF2 import PdfReader
 from docx import Document
 from openpyxl import load_workbook
+
 
 class DocumentReader:
     """
