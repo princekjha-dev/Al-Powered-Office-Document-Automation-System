@@ -201,11 +201,12 @@ class UserManager:
             return user.statistics
         return None
 
-    def update_user_statistics(self, user_id: int, **kwargs) -> bool:
-        """Update user statistics."""
+    def update_user_preferences(self, user_id: int, preferences: Dict[str, Any]) -> bool:
+        """Update user preferences."""
         user = self.get_user(user_id)
         if user:
-            for key, value in kwargs.items():
-                user.increment_statistic(key, value)
+            for key, value in preferences.items():
+                user.set_preference(key, value)
             return self.save_user(user)
         return False
+

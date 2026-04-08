@@ -1,10 +1,14 @@
 """
 Image generation service - Generate images using AI APIs.
+
+Supports multiple image generation models and styles. Provides both
+real API integration and fallback placeholder generation for offline use.
 """
 
 import requests
 import os
 from datetime import datetime
+from typing import List, Tuple, Optional
 import logging
 
 logger = logging.getLogger(__name__)
@@ -12,8 +16,10 @@ logger = logging.getLogger(__name__)
 
 class ImageGenerator:
     """
-    Class to handle image generation using Hugging Face APIs.
-    Supports multiple image generation models and styles.
+    Service for generating images using Hugging Face APIs.
+    
+    Supports multiple image generation models and styles (realistic, abstract, artistic).
+    Falls back to placeholder images when API is unavailable.
     """
 
     HF_MODELS = {
@@ -22,7 +28,7 @@ class ImageGenerator:
         "artistic": "prompthero/openjourney",
     }
 
-    def __init__(self, api_key=None):
+    def __init__(self, api_key: Optional[str] = None) -> None:
         """
         Initialize image generator.
         
@@ -33,7 +39,8 @@ class ImageGenerator:
         self.hf_endpoint = "https://api-inference.huggingface.co/models/"
         self.headers = {"Authorization": f"Bearer {self.api_key}"} if self.api_key else {}
 
-    def generate_from_prompt(self, prompt, style="realistic", filename=None, output_dir="/tmp"):
+    def generate_from_prompt(self, prompt: str, style: str = "realistic", 
+                            filename: Optional[str] = None, output_dir: str = "/tmp") -> str:
         """
         Generate an image from a text prompt.
         
@@ -58,7 +65,8 @@ class ImageGenerator:
             logger.error(f"HF API failed: {e}. Using placeholder.")
             return self._create_placeholder_image(prompt, filename, output_dir)
 
-    def generate_from_document(self, text, style="realistic", max_prompts=3, output_dir="/tmp"):
+    def generate_from_document(self, text: str, style: str = "realistic", 
+                              max_prompts: int = 3, output_dir: str = "/tmp") -> List[Tuple[str, str]]:
         """
         Generate multiple images based on document content.
         
@@ -84,7 +92,7 @@ class ImageGenerator:
         
         return images
 
-    def _extract_image_prompts(self, text, max_prompts=3):
+    def _extract_image_prompts(self, text: str, max_prompts: int = 3) -> List[str]:
         """Extract key concepts from document text."""
         stop_words = {'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
                      'of', 'with', 'by', 'from', 'is', 'are', 'was', 'were', 'be', 'been',
@@ -107,7 +115,8 @@ class ImageGenerator:
         
         return prompts[:max_prompts]
 
-    def _query_huggingface(self, model_id, prompt, filename=None, output_dir="/tmp"):
+    def _query_huggingface(self, model_id: str, prompt: str, 
+                          filename: Optional[str] = None, output_dir: str = "/tmp") -> str:
         """Query Hugging Face API to generate image."""
         if filename is None:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -135,7 +144,8 @@ class ImageGenerator:
         except Exception as e:
             raise Exception(f"Failed to generate image: {str(e)}")
 
-    def _create_placeholder_image(self, prompt, filename=None, output_dir="/tmp"):
+    def _create_placeholder_image(self, prompt: str, filename: Optional[str] = None, 
+                                 output_dir: str = "/tmp") -> str:
         """Create placeholder image when API unavailable."""
         try:
             from PIL import Image, ImageDraw
@@ -157,7 +167,8 @@ class ImageGenerator:
         img.save(filepath)
         return filepath
 
-    def generate_batch(self, prompts, style="realistic", output_dir="/tmp"):
+    def generate_batch(self, prompts: List[str], style: str = "realistic", 
+                      output_dir: str = "/tmp") -> List[str]:
         """Generate multiple images from a list of prompts."""
         images = []
         for i, prompt in enumerate(prompts):
