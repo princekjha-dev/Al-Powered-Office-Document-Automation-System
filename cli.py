@@ -10,9 +10,9 @@ from datetime import datetime
 from pathlib import Path
 from tabulate import tabulate
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from src.config.settings import get_config
+from src.config.settings import get_config, Config
 from src.models.user import UserManager
 from src.models.storage import UserGalleryStorage
 from src.services.document_reader import DocumentReader
@@ -24,6 +24,9 @@ from src.utils.helpers import format_file_size, get_logger
 
 logger = get_logger(__name__)
 config = get_config()
+
+# Ensure directories exist
+Config.create_directories()
 
 
 @click.group()
@@ -116,7 +119,7 @@ def gallery() -> None:
 def stats(user_id: int) -> None:
     """Show gallery statistics."""
     try:
-        storage = UserGalleryStorage()
+        storage = UserGalleryStorage(base_dir=Config.GALLERIES_DIR)
         gallery_service = ImageGalleryService(storage)
         
         images_count = storage.get_user_images_count(user_id)
@@ -137,7 +140,7 @@ def stats(user_id: int) -> None:
 def list(user_id: int, limit: int) -> None:
     """List user's images."""
     try:
-        storage = UserGalleryStorage()
+        storage = UserGalleryStorage(base_dir=Config.GALLERIES_DIR)
         gallery_service = ImageGalleryService(storage)
         
         images = gallery_service.get_gallery_summary(user_id, limit=limit)
@@ -176,7 +179,7 @@ def user() -> None:
 def create(user_id: int, first_name: str, last_name: str) -> None:
     """Create a new user."""
     try:
-        user_manager = UserManager()
+        user_manager = UserManager(data_dir=Config.USERS_DIR)
         user = user_manager.create_or_get_user(
             user_id, first_name=first_name, last_name=last_name
         )
@@ -190,7 +193,7 @@ def create(user_id: int, first_name: str, last_name: str) -> None:
 def stats(user_id: int) -> None:
     """Show user statistics."""
     try:
-        user_manager = UserManager()
+        user_manager = UserManager(data_dir=Config.USERS_DIR)
         user = user_manager.get_user(user_id)
         
         if not user:

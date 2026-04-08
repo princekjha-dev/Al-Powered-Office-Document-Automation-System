@@ -1,4 +1,4 @@
-rm -f workers.py src/services/task_queue.py DEPLOYMENT.md DOCKER.md IMPLEMENTATION_GUIDE.md PROJECT_SUMMARY.md QUICK_REFERENCE.md cleanup.sh cleanup_workspace.py CLEANUP_PLAN.md HACKATHON_SIMPLIFICATION_STATUS.md && git add -A && git commit -m "🎯 Hackathon submission: AI-Powered Office Document Automation System - simplified and ready!" && git push origin main#!/usr/bin/env python3
+#!/usr/bin/env python3
 """
 Simple test script to verify the bot setup.
 Run this after setting up your .env file.
@@ -6,6 +6,9 @@ Run this after setting up your .env file.
 
 import os
 import sys
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def test_imports():
     """Test basic imports."""

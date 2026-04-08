@@ -1,0 +1,20 @@
+{
+  "user_id": 7420986072,
+  "username": "hnaruto10",
+  "first_name": "Prince",
+  "last_name": "",
+  "is_premium": false,
+  "created_at": "2026-04-08T12:10:07.995760",
+  "last_active": "2026-04-08T12:10:07.995766",
+  "preferences": {
+    "default_image_style": "realistic",
+    "max_images_per_session": 5,
+    "notifications_enabled": true
+  },
+  "statistics": {
+    "documents_processed": 1,
+    "documents_generated": 0,
+    "images_generated": 0,
+    "total_api_usage": 0
+  }
+}

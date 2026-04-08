@@ -1,0 +1,20 @@
+{
+  "user_id": 7786155874,
+  "username": "",
+  "first_name": "Styen",
+  "last_name": "",
+  "is_premium": false,
+  "created_at": "2026-04-08T12:12:12.213935",
+  "last_active": "2026-04-08T12:12:12.213943",
+  "preferences": {
+    "default_image_style": "realistic",
+    "max_images_per_session": 5,
+    "notifications_enabled": true
+  },
+  "statistics": {
+    "documents_processed": 2,
+    "documents_generated": 0,
+    "images_generated": 0,
+    "total_api_usage": 0
+  }
+}

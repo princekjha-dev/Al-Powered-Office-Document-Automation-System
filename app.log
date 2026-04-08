@@ -1,0 +1,733 @@
+2026-04-08 12:01:41,698 - src.services.image_generator - INFO - InferenceClient initialized with model: black-forest-labs/FLUX.1-Krea-dev
+2026-04-08 12:01:54,778 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-04-08 12:01:54,778 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-04-08 12:01:55,415 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:01:55,675 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-08 12:01:55,939 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-08 12:01:56,224 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:01:56,554 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-08 12:01:56,864 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-08 12:01:57,154 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:01:57,186 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-08 12:01:57,467 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:01:57,745 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-04-08 12:01:58,030 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-04-08 12:01:58,330 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:01:58,365 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-08 12:01:58,747 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:01:59,027 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-04-08 12:01:59,307 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-04-08 12:01:59,585 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-04-08 12:01:59,854 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:02:00,165 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-08 12:02:00,484 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-08 12:02:00,814 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-04-08 12:02:01,155 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/xet-read-token/c9745ed1d9f207416be6d2e6f8de32d1f16199bf "HTTP/1.1 200 OK"
+2026-04-08 12:02:11,987 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:02:12,017 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-08 12:02:12,306 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:02:12,573 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-08 12:02:12,846 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-08 12:02:13,145 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-08 12:02:13,425 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-08 12:02:13,696 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/vocab.txt "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:02:14,006 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/vocab.txt "HTTP/1.1 200 OK"
+2026-04-08 12:02:14,313 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/vocab.txt "HTTP/1.1 200 OK"
+2026-04-08 12:02:14,632 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:02:14,904 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer.json "HTTP/1.1 200 OK"
+2026-04-08 12:02:15,184 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer.json "HTTP/1.1 200 OK"
+2026-04-08 12:02:15,540 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/added_tokens.json "HTTP/1.1 404 Not Found"
+2026-04-08 12:02:15,800 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/special_tokens_map.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:02:16,062 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/special_tokens_map.json "HTTP/1.1 200 OK"
+2026-04-08 12:02:16,359 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/special_tokens_map.json "HTTP/1.1 200 OK"
+2026-04-08 12:02:16,637 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+2026-04-08 12:02:16,985 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:02:17,281 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-04-08 12:02:17,588 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-04-08 12:02:17,882 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-04-08 12:02:17,917 - src.services.language_detection - INFO - langdetect library available
+2026-04-08 12:02:45,016 - src.services.image_generator - INFO - InferenceClient initialized with model: black-forest-labs/FLUX.1-Krea-dev
+2026-04-08 12:03:11,223 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-04-08 12:03:11,223 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-04-08 12:03:12,015 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:03:12,064 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-08 12:03:12,375 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:03:12,391 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-08 12:03:12,678 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:03:12,722 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-08 12:03:12,988 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:03:13,029 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-04-08 12:03:13,293 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:03:13,304 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-08 12:03:13,574 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:03:13,628 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-04-08 12:03:13,904 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-04-08 12:03:14,166 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:03:14,175 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-08 12:03:14,624 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:03:14,654 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-08 12:03:14,924 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:03:14,955 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-08 12:03:15,239 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-08 12:03:15,524 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-08 12:03:15,824 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:03:15,857 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-04-08 12:03:16,124 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-04-08 12:03:16,244 - src.services.language_detection - INFO - langdetect library available
+2026-04-08 12:04:41,860 - src.services.image_generator - INFO - InferenceClient initialized with model: black-forest-labs/FLUX.1-Krea-dev
+2026-04-08 12:05:47,726 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-04-08 12:05:47,726 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-04-08 12:05:48,914 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:05:48,939 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-08 12:05:49,242 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:05:49,253 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-08 12:05:49,541 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:05:49,552 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-08 12:05:49,815 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:05:49,841 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-04-08 12:05:50,112 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:05:50,167 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-08 12:05:50,440 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:05:50,447 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-04-08 12:05:50,712 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-04-08 12:05:50,988 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:05:51,009 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-08 12:05:51,534 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:05:51,546 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-08 12:05:51,822 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:05:51,852 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-08 12:05:52,157 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-08 12:05:52,417 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-08 12:05:52,807 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:05:52,829 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-04-08 12:05:53,111 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-04-08 12:05:53,266 - src.services.language_detection - INFO - langdetect library available
+2026-04-08 12:05:53,266 - __main__ - INFO - All services initialized successfully
+2026-04-08 12:05:54,407 - __main__ - INFO - Bot running with advanced features...
+2026-04-08 12:05:58,385 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getMe "HTTP/1.1 200 OK"
+2026-04-08 12:05:58,565 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/deleteWebhook "HTTP/1.1 200 OK"
+2026-04-08 12:05:58,568 - telegram.ext.Application - INFO - Application started
+2026-04-08 12:06:09,191 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:06:19,422 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:06:29,621 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:06:39,830 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:06:50,028 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:07:00,240 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:07:10,477 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:07:14,429 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:07:15,189 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:07:24,659 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:07:34,852 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:07:45,045 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:07:55,242 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:07:57,267 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:08:07,481 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:08:08,111 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:08:08,951 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:08:18,315 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:08:18,852 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:08:29,089 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:08:39,330 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:08:49,527 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:08:59,724 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:09:09,946 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:09:20,150 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:09:30,345 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:09:35,731 - src.services.image_generator - INFO - InferenceClient initialized with model: black-forest-labs/FLUX.1-Krea-dev
+2026-04-08 12:09:40,563 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:09:41,239 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-04-08 12:09:41,240 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-04-08 12:09:42,008 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:09:42,068 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-08 12:09:42,368 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:09:42,405 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-08 12:09:42,713 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:09:42,758 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-08 12:09:43,058 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:09:43,097 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-04-08 12:09:43,388 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:09:43,428 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-08 12:09:43,738 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:09:43,802 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-04-08 12:09:44,116 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-04-08 12:09:44,439 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:09:44,488 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-08 12:09:44,864 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:09:44,904 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-08 12:09:45,238 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:09:45,276 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-08 12:09:45,581 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-08 12:09:45,888 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-08 12:09:46,297 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:09:46,400 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-04-08 12:09:46,708 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-04-08 12:09:46,721 - src.services.language_detection - INFO - langdetect library available
+2026-04-08 12:09:46,722 - __main__ - INFO - All services initialized successfully
+2026-04-08 12:09:47,304 - __main__ - INFO - Bot running with advanced features...
+2026-04-08 12:09:47,936 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getMe "HTTP/1.1 200 OK"
+2026-04-08 12:09:48,138 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/deleteWebhook "HTTP/1.1 200 OK"
+2026-04-08 12:09:48,141 - telegram.ext.Application - INFO - Application started
+2026-04-08 12:09:48,755 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:09:48,757 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:09:53,056 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:09:53,057 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:09:54,261 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:09:54,263 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:09:58,978 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:09:58,980 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:10:00,668 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:10:00,669 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:10:06,147 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:10:06,148 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:10:07,994 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:10:08,574 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:10:08,575 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:10:08,768 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:10:12,777 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:10:12,778 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:10:16,340 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:10:16,342 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:10:21,044 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:10:21,046 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:10:26,707 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:10:26,708 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:10:31,900 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:10:32,195 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:10:32,197 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:10:40,392 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:10:40,394 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:10:40,716 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:10:41,607 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:10:44,706 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:10:44,708 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:10:45,177 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:10:45,894 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:10:45,895 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:10:45,983 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:10:48,557 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:10:50,149 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:10:50,150 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:10:51,847 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:10:51,849 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:10:56,057 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:10:56,059 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:10:58,529 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:10:58,530 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:11:03,271 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:11:03,273 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:11:06,885 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:11:06,887 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:11:08,530 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:11:12,358 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:11:12,359 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:11:13,542 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:11:13,543 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:11:17,125 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:11:17,127 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:11:21,835 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:11:21,837 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:11:27,560 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:11:27,563 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:11:33,022 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:11:33,024 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:11:40,165 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:11:41,247 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:11:41,248 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:11:45,489 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:11:45,491 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:11:52,453 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:11:57,505 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:11:57,507 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:12:01,716 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:12:01,717 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:12:08,706 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:12:12,211 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:12:12,975 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:12:19,416 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:12:19,418 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:12:23,615 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:12:23,617 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:12:30,605 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:12:40,788 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:12:44,614 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:12:45,399 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:12:46,355 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getFile "HTTP/1.1 200 OK"
+2026-04-08 12:12:46,972 - httpx - INFO - HTTP Request: GET https://api.telegram.org/file/bot8658817996%3AAAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/documents/file_0.pdf "HTTP/1.1 200 OK"
+2026-04-08 12:12:48,852 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:12:51,816 - src.services.document_categorization - ERROR - AI categorization error: API failed after retry: Expecting value: line 1 column 1 (char 0)
+2026-04-08 12:12:54,405 - src.services.document_categorization - ERROR - AI tag generation error: API failed after retry: Expecting value: line 1 column 1 (char 0)
+2026-04-08 12:12:54,411 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:12:54,414 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:12:55,302 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:12:55,632 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:12:55,634 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:12:55,677 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:12:58,285 - __main__ - ERROR - Document error: API failed after retry: Expecting value: line 1 column 1 (char 0)
+2026-04-08 12:12:58,655 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:13:05,619 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:13:15,807 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:13:25,990 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:13:26,455 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:13:26,457 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:13:30,674 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:13:30,676 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:13:37,718 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:13:47,958 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:13:58,144 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:14:01,266 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:14:01,268 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:14:05,453 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:14:05,455 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:14:12,467 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:14:22,671 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:14:32,894 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:14:36,085 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:14:36,087 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:14:40,287 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:14:40,289 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:14:47,325 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:14:57,590 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:15:07,828 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:15:10,900 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:15:10,902 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:15:15,114 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:15:15,116 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:15:22,102 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:15:32,281 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:15:42,543 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:15:52,782 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:16:02,973 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:16:13,156 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:16:57,340 - src.services.image_generator - INFO - InferenceClient initialized with model: black-forest-labs/FLUX.1-Krea-dev
+2026-04-08 12:17:04,222 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-04-08 12:17:04,222 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-04-08 12:17:04,895 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:17:04,904 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-08 12:17:05,178 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:17:05,187 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-08 12:17:05,461 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:17:05,484 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-08 12:17:06,201 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:17:06,211 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-04-08 12:17:06,481 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:17:06,508 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-08 12:17:06,771 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:17:06,781 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-04-08 12:17:07,051 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-04-08 12:17:07,321 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:17:07,330 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-08 12:17:07,681 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:17:07,702 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-08 12:17:08,044 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:17:08,104 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-08 12:17:08,399 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-08 12:17:08,699 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-08 12:17:09,049 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:17:09,057 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-04-08 12:17:09,375 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-04-08 12:17:09,390 - src.services.language_detection - INFO - langdetect library available
+2026-04-08 12:17:09,390 - __main__ - INFO - All services initialized successfully
+2026-04-08 12:17:10,069 - __main__ - INFO - Bot running with advanced features...
+2026-04-08 12:17:10,685 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getMe "HTTP/1.1 200 OK"
+2026-04-08 12:17:10,891 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/deleteWebhook "HTTP/1.1 200 OK"
+2026-04-08 12:17:10,894 - telegram.ext.Application - INFO - Application started
+2026-04-08 12:17:21,429 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:17:31,649 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:17:41,839 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:17:52,020 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:18:02,213 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:18:12,392 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:18:22,590 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:18:32,786 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:18:42,968 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:18:53,147 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:19:03,328 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:19:13,532 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:19:23,709 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:19:33,908 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:19:44,087 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:19:54,339 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:20:04,541 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:20:14,722 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:20:24,937 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:20:35,140 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:20:45,334 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:20:55,548 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:21:05,807 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:21:16,002 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:21:26,191 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:21:36,383 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:21:46,601 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:21:56,783 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:22:07,048 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:22:17,289 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:22:27,476 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:22:37,655 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:22:47,905 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:22:58,082 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:23:08,282 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:23:18,503 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:23:40,274 - src.services.image_generator - INFO - InferenceClient initialized with model: black-forest-labs/FLUX.1-Krea-dev
+2026-04-08 12:23:45,474 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-04-08 12:23:45,474 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-04-08 12:23:46,170 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:23:46,184 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-08 12:23:46,476 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:23:46,506 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-08 12:23:46,783 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:23:46,887 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-08 12:23:47,193 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:23:47,296 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-04-08 12:23:47,595 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:23:47,603 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-08 12:23:47,910 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:23:48,013 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-04-08 12:23:48,320 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-04-08 12:23:48,606 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:23:48,613 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-08 12:23:49,017 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:23:49,037 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-08 12:23:49,301 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:23:49,446 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-08 12:23:49,754 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-08 12:23:50,036 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-08 12:23:50,368 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:23:50,470 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-04-08 12:23:50,777 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-04-08 12:23:50,787 - src.services.language_detection - INFO - langdetect library available
+2026-04-08 12:23:50,788 - __main__ - INFO - All services initialized successfully
+2026-04-08 12:23:51,393 - __main__ - INFO - Bot running with advanced features...
+2026-04-08 12:23:52,014 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getMe "HTTP/1.1 200 OK"
+2026-04-08 12:23:52,266 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/deleteWebhook "HTTP/1.1 200 OK"
+2026-04-08 12:23:52,269 - telegram.ext.Application - INFO - Application started
+2026-04-08 12:24:02,832 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:24:13,043 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:24:23,224 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:24:33,434 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:24:43,664 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:24:53,855 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:25:04,095 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:25:14,287 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:25:24,472 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:25:34,657 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:25:44,835 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:25:55,063 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:26:02,825 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:26:03,755 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:26:13,111 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:26:23,289 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:26:33,488 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:26:43,732 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:26:53,968 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:27:04,180 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:27:14,433 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:27:24,688 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:27:25,497 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:27:27,053 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getFile "HTTP/1.1 200 OK"
+2026-04-08 12:27:27,331 - httpx - INFO - HTTP Request: GET https://api.telegram.org/file/bot8658817996%3AAAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/documents/file_1.pdf "HTTP/1.1 200 OK"
+2026-04-08 12:27:31,651 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/editMessageText "HTTP/1.1 200 OK"
+2026-04-08 12:27:53,979 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:27:54,163 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:27:54,805 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:27:59,913 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:28:04,347 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:28:06,054 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:28:16,297 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:28:26,537 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:28:36,721 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:28:46,960 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:28:57,259 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:29:07,598 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:29:17,838 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:29:28,086 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:29:38,314 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:29:48,519 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:29:58,700 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:30:08,935 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:30:19,112 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:30:29,312 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:30:39,492 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:30:49,721 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:30:59,914 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:31:10,138 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:31:20,348 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:31:30,551 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:31:40,786 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:31:50,978 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:32:01,193 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:32:11,381 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:32:21,643 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:32:31,830 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:32:42,020 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:32:52,206 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:33:02,398 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:33:12,620 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:33:18,960 - src.services.image_generator - INFO - InferenceClient initialized with model: black-forest-labs/FLUX.1-Krea-dev
+2026-04-08 12:33:22,820 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:33:33,015 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:33:43,208 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:33:48,741 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-04-08 12:33:48,742 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-04-08 12:33:49,784 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:33:49,841 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-08 12:33:50,168 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:33:50,208 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-08 12:33:50,513 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:33:50,561 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-08 12:33:50,860 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:33:50,910 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-04-08 12:33:51,254 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:33:51,300 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-08 12:33:51,627 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:33:51,754 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-04-08 12:33:52,163 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-04-08 12:33:52,471 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:33:52,525 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-08 12:33:53,088 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:33:53,186 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-08 12:33:53,387 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:33:53,484 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:33:53,545 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-08 12:33:53,905 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-08 12:33:54,215 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-08 12:33:54,621 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-08 12:33:54,705 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-04-08 12:33:55,038 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-04-08 12:33:55,146 - src.services.language_detection - INFO - langdetect library available
+2026-04-08 12:33:55,146 - __main__ - INFO - All services initialized successfully
+2026-04-08 12:33:55,876 - __main__ - INFO - Bot running with advanced features...
+2026-04-08 12:33:56,567 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getMe "HTTP/1.1 200 OK"
+2026-04-08 12:33:56,766 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/deleteWebhook "HTTP/1.1 200 OK"
+2026-04-08 12:33:56,769 - telegram.ext.Application - INFO - Application started
+2026-04-08 12:33:57,391 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:33:57,409 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:34:01,678 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:34:01,680 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:34:02,860 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:34:02,864 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:34:07,625 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:34:07,626 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:34:09,331 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:34:09,333 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:34:14,797 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:34:14,798 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:34:17,251 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:34:17,253 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:34:20,835 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:34:20,837 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:34:24,419 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:34:24,421 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:34:30,153 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:34:30,154 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:34:35,835 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:34:35,837 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:34:44,070 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:34:44,072 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:34:52,381 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:34:52,383 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:35:02,409 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:35:04,456 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:35:04,458 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:35:08,651 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:35:08,653 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:35:15,713 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:35:21,966 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:35:22,889 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:35:23,594 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getFile "HTTP/1.1 200 OK"
+2026-04-08 12:35:23,865 - httpx - INFO - HTTP Request: GET https://api.telegram.org/file/bot8658817996%3AAAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/documents/file_2.docx "HTTP/1.1 200 OK"
+2026-04-08 12:35:24,731 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/editMessageText "HTTP/1.1 200 OK"
+2026-04-08 12:35:36,416 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:35:42,884 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:35:42,886 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:35:43,637 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:35:45,676 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:35:45,678 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:35:45,871 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:35:49,922 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:35:49,923 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:35:51,662 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:35:51,663 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:35:56,465 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:35:56,466 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:35:58,932 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:35:58,934 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:36:04,565 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:36:04,566 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:36:08,189 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:36:08,191 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:36:11,878 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:36:11,880 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:36:17,622 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:36:17,624 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:36:23,367 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:36:23,369 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:36:23,717 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:36:31,567 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:36:31,569 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:36:35,831 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:36:35,832 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:36:42,763 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:36:47,931 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:36:47,934 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:36:52,153 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:36:52,155 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:36:59,143 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:37:09,367 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:37:09,887 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:37:09,889 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:37:14,194 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:37:14,196 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:37:21,080 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:37:31,296 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:37:40,385 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:37:40,387 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:37:44,658 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:37:44,660 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:37:51,585 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:38:01,810 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:38:12,013 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:38:15,327 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:38:15,332 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:38:19,526 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:38:19,527 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:38:26,572 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:38:36,812 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:38:47,058 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:38:50,148 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:38:50,150 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:38:54,341 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:38:54,343 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:39:01,350 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:39:11,577 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:39:21,780 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:39:24,900 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:39:24,903 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:39:29,157 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:39:29,159 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:39:36,111 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:39:46,327 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:39:56,515 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:39:59,876 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:39:59,877 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:40:04,068 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:40:04,069 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:40:11,091 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:40:21,277 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:40:31,455 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:40:34,691 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:40:34,693 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:40:38,890 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:40:38,892 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:40:45,905 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:40:56,112 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:41:06,335 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:41:09,443 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:41:09,445 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:41:13,679 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:41:13,680 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:41:20,635 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:41:21,331 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:41:31,515 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:41:41,752 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:41:44,297 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:41:44,302 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:41:48,521 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:41:48,522 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:41:55,502 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:42:05,724 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:42:07,781 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:42:08,609 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:42:10,291 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getFile "HTTP/1.1 200 OK"
+2026-04-08 12:42:10,949 - httpx - INFO - HTTP Request: GET https://api.telegram.org/file/bot8658817996%3AAAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/documents/file_3.pdf "HTTP/1.1 200 OK"
+2026-04-08 12:42:14,780 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/editMessageText "HTTP/1.1 200 OK"
+2026-04-08 12:42:29,146 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:42:31,666 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:42:31,843 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:42:31,845 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:42:32,456 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:42:33,987 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:42:34,885 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:42:37,440 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:42:37,444 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:42:37,841 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/sendMessage "HTTP/1.1 200 OK"
+2026-04-08 12:42:38,631 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:42:38,633 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:42:42,822 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:42:42,823 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:42:44,632 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:42:44,636 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:42:49,345 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:42:49,347 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:42:51,803 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:42:51,805 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:42:57,265 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:42:57,267 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:43:00,866 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:43:00,867 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:43:01,838 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:43:04,439 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:43:04,440 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:43:08,645 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:43:08,648 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:43:14,421 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:43:14,423 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:43:19,143 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:43:19,145 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:43:24,513 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:43:27,336 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:43:27,338 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:43:31,517 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:43:31,519 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:43:38,597 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:43:43,495 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:43:43,496 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:43:47,700 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:43:47,702 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:43:54,685 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:44:04,884 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:44:05,498 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:44:05,499 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:44:09,703 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:44:09,705 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:44:16,713 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:44:26,910 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:44:35,996 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:44:35,998 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:44:40,229 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:44:40,232 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:44:47,212 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:44:57,389 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:45:07,584 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:45:10,861 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:45:10,862 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:45:15,037 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:45:15,039 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:45:22,040 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:45:32,224 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:45:42,506 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:45:45,864 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:45:45,866 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:45:50,053 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:45:50,055 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:45:57,082 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:46:07,259 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:46:17,436 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:46:20,667 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:46:20,668 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:46:24,996 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:46:24,998 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:46:31,955 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:46:42,199 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:46:52,442 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:46:55,765 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:46:55,767 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:47:00,006 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:47:00,009 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:47:06,980 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:47:17,161 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:47:27,351 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-08 12:47:30,736 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:47:30,738 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:47:34,947 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-08 12:47:34,949 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-08 12:47:42,000 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"

@@ -115,7 +115,7 @@ async def handle_document(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         await update.message.reply_text("❌ Unsupported file (PDF, DOCX, XLSX only)")
         return
 
-    await update.message.reply_text("⏳ Analyzing document...")
+    status_msg = await update.message.reply_text("⏳ Analyzing your document...")
     
     try:
         # Download file
@@ -127,27 +127,70 @@ async def handle_document(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
             # Extract text
             text = DocumentReader.extract_text(file_path)
             if not text.strip():
-                await update.message.reply_text("❌ Could not extract text from file")
+                await status_msg.edit_text("❌ Could not extract text from file")
                 return
             
-            # Detect language
-            lang_info = Services.language_detection.get_language_info(text)
-            await update.message.reply_text(lang_info, parse_mode='Markdown')
+            # --- Build a single consolidated report ---
             
-            # Categorize document
-            category_report = Services.doc_category.get_categorization_report(text, Services.ai_service)
-            await update.message.reply_text(category_report, parse_mode='Markdown')
+            # 1. Language detection
+            lang_result = Services.language_detection.detect_language(text)
+            lang_name = lang_result.get("language_name", "Unknown")
+            lang_code = lang_result.get("language", "?")
+            lang_conf = lang_result.get("confidence", 0)
             
-            # Check quality
-            quality_report = Services.doc_quality.get_quality_report(text)
-            await update.message.reply_text(quality_report, parse_mode='Markdown')
+            # 2. Categorization
+            category, cat_conf = Services.doc_category.categorize_document(text)
+            tags = Services.doc_category.generate_tags(text, category)
             
-            # AI analysis
-            analysis = Services.ai_service.analyze_document(text)
-            await update.message.reply_text(f"✅ *Analysis:*\n\n{analysis}", parse_mode='Markdown')
+            # 3. Quality scores
+            scores = Services.doc_quality.score_document(text)
+            overall = scores.get("overall", 0)
+            if overall >= 8:
+                quality_label = "Excellent 🌟"
+            elif overall >= 6:
+                quality_label = "Good 👍"
+            elif overall >= 4:
+                quality_label = "Fair ⚠️"
+            else:
+                quality_label = "Needs Work 🔧"
             
-            # Store document for chat
-            session_id = Services.doc_chat.create_session(text, user_id)
+            # 4. Doc statistics
+            word_count = len(text.split())
+            line_count = len(text.split('\n'))
+            pages_est = max(1, word_count // 250)
+            
+            # Build the consolidated report
+            report = (
+                f"📄 *Document Report*\n"
+                f"━━━━━━━━━━━━━━━━━━━━\n\n"
+                f"🌐 *Language:* {lang_name} ({lang_code}) — {lang_conf*100:.0f}%\n"
+                f"📂 *Category:* {category.upper()} — {cat_conf*100:.0f}%\n"
+                f"🏷 *Tags:* {', '.join(tags) if tags else 'none'}\n\n"
+                f"📊 *Quality:* {overall:.1f}/10 ({quality_label})\n"
+                f"   Clarity: {scores.get('clarity', 0):.1f} · "
+                f"Grammar: {scores.get('grammar', 0):.1f} · "
+                f"Coherence: {scores.get('coherence', 0):.1f}\n\n"
+                f"📏 *Stats:* {word_count} words · {line_count} lines · ~{pages_est} pages"
+            )
+            
+            # Send the consolidated report
+            await status_msg.edit_text(report, parse_mode='Markdown')
+            
+            # 5. AI analysis (separate message since it can be long)
+            try:
+                analysis = Services.ai_service.analyze_document(text)
+                await update.message.reply_text(
+                    f"🤖 *AI Analysis*\n━━━━━━━━━━━━━━━━━━━━\n\n{analysis}",
+                    parse_mode='Markdown'
+                )
+            except Exception as ai_err:
+                logger.error(f"AI analysis failed: {ai_err}")
+                await update.message.reply_text(
+                    f"⚠️ AI analysis unavailable: {str(ai_err)[:100]}"
+                )
+            
+            # Create chat session for this document
+            session_id = Services.doc_chat.create_session(user_id, text)
             context.user_data['current_doc_session'] = session_id
             context.user_data['last_doc_text'] = text
             
@@ -155,11 +198,15 @@ async def handle_document(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
             keyboard = [['🎨 Images', '💬 Ask', '🔍 Compare'], ['❌ Done']]
             reply_markup = ReplyKeyboardMarkup(keyboard, one_time_keyboard=True)
             await update.message.reply_text(
-                "What would you like to do?",
+                "What would you like to do next?",
                 reply_markup=reply_markup
             )
             
-            Services.user_manager.update_user_statistics(user_id, documents_processed=1)
+            # Update user statistics
+            user = Services.user_manager.get_user(user_id)
+            if user:
+                user.increment_statistic('documents_processed')
+                Services.user_manager.save_user(user)
             
         finally:
             if os.path.exists(file_path):
@@ -201,50 +248,31 @@ async def handle_document_questions(update: Update, context: ContextTypes.DEFAUL
         session_id = context.user_data.get('current_doc_session')
         
         if not session_id:
-            await update.message.reply_text("❌ No active document session. Please send a document first.")
+            await update.message.reply_text("❌ No document in chat session. Upload a document first.")
             context.user_data['in_chat_mode'] = False
             return
         
         await update.message.reply_text("💭 Thinking...")
         
         try:
-            answer = Services.doc_chat.answer_question(session_id, question, Services.ai_service)
-            await update.message.reply_text(f"🤖 *Answer:*\n\n{answer}", parse_mode='Markdown')
+            # Get answer from DocumentChat service using RAG
+            answer = Services.doc_chat.ask_question(session_id, question)
+            await update.message.reply_text(f"💬 *Answer*\n\n{answer}", parse_mode='Markdown')
             
-            await update.message.reply_text(
-                "Ask another question? (or /cancel)",
-                reply_markup=ReplyKeyboardMarkup([['❌ Done']], one_time_keyboard=True)
-            )
         except Exception as e:
             logger.error(f"Chat error: {e}")
             await update.message.reply_text(f"❌ Error: {str(e)}")
     
     elif context.user_data.get('comparing'):
         # Store second document for comparison
-        context.user_data['doc2_text'] = update.message.text
         doc1_text = context.user_data.get('last_doc_text', '')
-        doc2_text = context.user_data.get('doc2_text', '')
+        doc2_text = update.message.text
         
         if doc1_text and doc2_text:
             await update.message.reply_text("🔍 Comparing documents...")
-            
             try:
-                report = Services.doc_comparison.generate_comparison_report(
-                    doc1_text, doc2_text, Services.ai_service
-                )
-                
-                summary = report.get('summary', '')
-                changes = report.get('key_changes', '')
-                
-                await update.message.reply_text(summary, parse_mode='Markdown')
-                await update.message.reply_text(changes, parse_mode='Markdown')
-                
-                if 'semantic_analysis' in report:
-                    await update.message.reply_text(
-                        f"🧠 *Semantic Analysis:*\n\n{report['semantic_analysis']}",
-                        parse_mode='Markdown'
-                    )
-                
+                comparison = Services.doc_comparison.compare(doc1_text, doc2_text)
+                await update.message.reply_text(f"📊 *Comparison*\n\n{comparison}", parse_mode='Markdown')
                 context.user_data['comparing'] = False
             except Exception as e:
                 logger.error(f"Comparison error: {e}")
@@ -285,55 +313,11 @@ async def handle_generate_images_v2(update: Update, context: ContextTypes.DEFAUL
             if os.path.exists(image_path):
                 os.remove(image_path)
         
-        Services.user_manager.update_user_statistics(user_id, images_generated=2)
-        await update.message.reply_text("✅ Images saved to gallery!")
-        
-    except Exception as e:
-        logger.error(f"Image generation error: {e}")
-        await update.message.reply_text(f"❌ Error: {str(e)}")
-
-
-async def handle_generate_images(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Generate images from document text."""
-    if update.message.text == '❌ Skip':
-        await update.message.reply_text("Skipped", reply_markup=ReplyKeyboardRemove())
-        return
-    
-    user_id = update.effective_user.id
-    text = context.user_data.get('last_doc_text', '')
-    
-    if not text:
-        await update.message.reply_text("No document in memory", reply_markup=ReplyKeyboardRemove())
-        return
-
-    await update.message.reply_text("🔄 Generating images...", reply_markup=ReplyKeyboardRemove())
-    
-    try:
-        # Generate image prompts from document
-        prompts = Services.ai_service.generate_image_prompts(text, count=2)
-        
-        for i, prompt in enumerate(prompts, 1):
-            await update.message.reply_text(f"📸 Image {i}/2...")
-            image_path = Services.image_service.generate_from_prompt(prompt, "realistic")
-            
-            # Add to gallery
-            Services.gallery_service.add_image(
-                user_id, image_path, prompt,
-                tags=['document', 'auto'], style='realistic'
-            )
-            
-            # Send image
-            with open(image_path, 'rb') as f:
-                await update.message.reply_photo(
-                    photo=f,
-                    caption=f"_{prompt}_",
-                    parse_mode='Markdown'
-                )
-            
-            if os.path.exists(image_path):
-                os.remove(image_path)
-        
-        Services.user_manager.update_user_statistics(user_id, images_generated=2)
+        # Update user statistics
+        user = Services.user_manager.get_user(user_id)
+        if user:
+            user.increment_statistic('images_generated', 2)
+            Services.user_manager.save_user(user)
         await update.message.reply_text("✅ Images saved to gallery!")
         
     except Exception as e:
@@ -388,7 +372,11 @@ async def generate_format(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
                 caption=f"✅ {topic}"
             )
         
-        Services.user_manager.update_user_statistics(user_id, documents_generated=1)
+        # Update user statistics
+        user = Services.user_manager.get_user(user_id)
+        if user:
+            user.increment_statistic('documents_generated')
+            Services.user_manager.save_user(user)
         
         if os.path.exists(filepath):
             os.remove(filepath)
@@ -451,7 +439,11 @@ async def image_style(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int
                 parse_mode='Markdown'
             )
         
-        Services.user_manager.update_user_statistics(user_id, images_generated=1)
+        # Update user statistics
+        user = Services.user_manager.get_user(user_id)
+        if user:
+            user.increment_statistic('images_generated')
+            Services.user_manager.save_user(user)
         
         if os.path.exists(image_path):
             os.remove(image_path)
@@ -484,6 +476,8 @@ async def stats_view(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     user_id = update.effective_user.id
     
     stats = Services.user_manager.get_user_statistics(user_id)
+    if stats is None:
+        stats = {}
     images_count = Services.storage.get_user_images_count(user_id)
     storage_used = Services.storage.get_user_gallery_size(user_id)
     
@@ -512,7 +506,7 @@ async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
         await update.message.reply_text("❌ An error occurred. Please try again.")
 
 
-async def main() -> None:
+def main() -> None:
     """Start the bot."""
     try:
         Config.validate()
@@ -530,7 +524,7 @@ async def main() -> None:
         Services.language_detection = LanguageDetection()
         Services.doc_quality = DocumentQuality()
         
-        logger.info("✅ All services initialized")
+        logger.info("All services initialized successfully")
         
         # Create application
         application = ApplicationBuilder().token(Config.TELEGRAM_TOKEN).build()
@@ -572,76 +566,16 @@ async def main() -> None:
             handle_document_questions
         ))
         
-        # Response action buttons
-        application.add_handler(MessageHandler(
-            filters.TEXT & (filters.Regex(r"🎨|💬|🔍|Done")),
-            handle_response_action
-        ))
-        
         # Error handler
         application.add_error_handler(error_handler)
         
-        logger.info("🚀 Bot running with advanced features...")
-        await application.run_polling()
+        logger.info("Bot running with advanced features...")
+        print("Bot is running! Press Ctrl+C to stop.")
+        application.run_polling()
         
     except Exception as e:
-        logger.error(f"❌ Failed: {e}")
+        logger.error(f"Failed to start bot: {e}")
         raise
-
-
-if __name__ == '__main__':
-    import asyncio
-    asyncio.run(main())
-
-
-if __name__ == '__main__':
-    import asyncio
-    asyncio.run(main())
-
-
-if __name__ == '__main__':
-    import asyncio
-    asyncio.run(main())
-        BotServices.gallery_service = ImageGalleryService(BotServices.storage)
-        logger.info("Image generation enabled")
-    
-    # Create application
-    app = ApplicationBuilder().token(Config.TELEGRAM_TOKEN).build()
-    
-    # Add handlers
-    app.add_handler(CommandHandler("start", start))
-    app.add_handler(CommandHandler("help", help_command))
-    
-    # Document generation
-    gen_handler = ConversationHandler(
-        entry_points=[CommandHandler("generate", generate_start)],
-        states={
-            GENERATE_TOPIC: [MessageHandler(filters.TEXT & ~filters.COMMAND, generate_topic_received)],
-            GENERATE_FORMAT: [MessageHandler(filters.TEXT & ~filters.COMMAND, generate_format_received)],
-        },
-        fallbacks=[CommandHandler("cancel", cancel)],
-    )
-    app.add_handler(gen_handler)
-    
-    # Image generation
-    if Config.IMAGE_GENERATION_ENABLED:
-        img_handler = ConversationHandler(
-            entry_points=[CommandHandler("image", image_start)],
-            states={
-                IMAGE_PROMPT: [MessageHandler(filters.TEXT & ~filters.COMMAND, image_prompt_received)],
-                IMAGE_STYLE: [MessageHandler(filters.TEXT & ~filters.COMMAND, image_style_received)],
-            },
-            fallbacks=[CommandHandler("cancel", cancel)],
-        )
-        app.add_handler(img_handler)
-        app.add_handler(CommandHandler("gallery", gallery_view))
-        app.add_handler(CommandHandler("gallery_stats", gallery_stats))
-    
-    # Document handler
-    app.add_handler(MessageHandler(filters.Document.ALL, handle_document))
-    
-    logger.info("Bot initialized successfully")
-    app.run_polling()
 
 
 if __name__ == '__main__':
