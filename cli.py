@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Command-line interface for the AI-Powered Document Automation System."""
+"""Command-line interface for the Al-Powered Office Document Automation System."""
 
 import os
 import sys
@@ -28,7 +28,7 @@ config = get_config()
 
 @click.group()
 def cli() -> None:
-    """AI-Powered Document Automation System CLI."""
+    """Al-Powered Office Document Automation System CLI."""
     pass
 
 
@@ -214,7 +214,7 @@ def stats(user_id: int) -> None:
 @cli.command()
 def version() -> None:
     """Show version information."""
-    click.echo("AI-Powered Document Automation System v1.0.0")
+    click.echo("Al-Powered Office Document Automation System v1.0.0")
 
 
 if __name__ == '__main__':

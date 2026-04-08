@@ -1,1 +1,1 @@
-"""Test suite for AI-Powered Office Document Automation System."""
+"""Test suite for Al-Powered Office Document Automation System."""

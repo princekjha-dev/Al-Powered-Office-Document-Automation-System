@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Simplified AI-Powered Document Automation Bot - Hackathon Edition.
+Simplified Al-Powered Office Document Automation System Bot - Hackathon Edition.
 
 Core features:
 - Document analysis (PDF, DOCX, XLSX)
-- AI-powered insights and summarization
+- Al-powered insights and summarization
 - Image generation from documents
 - Image gallery management
 """
@@ -425,7 +425,7 @@ if __name__ == '__main__':
     
     await update.message.reply_text(
         f"Welcome {user.first_name}! 👋\n\n"
-        "This is your AI-powered Document & Image Assistant.\n"
+        "This is your Al-powered Document & Image Assistant.\n"
         "Send documents for analysis, generate new documents, or create images.\n"
         "Use /help for all available commands."
     )
@@ -434,12 +434,13 @@ if __name__ == '__main__':
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Handle /help command."""
     help_text = (
-        "🤖 *AI-Powered Document & Image Assistant*\n\n"
+        "🤖 *Al-powered Document & Image Assistant*\n\n"
         "*Document Features:*\n"
         "📄 Send documents (PDF, DOCX, XLSX) for:\n"
         "   • AI analysis & summary\n"
-        "   • Key points & insights\n\n"
-        "✏️ `/generate` - Create AI-powered documents\n"
+        "   • Key points & insights\n"
+        "   • Built-in hallucination reduction and source grounding\n\n"
+        "✏️ `/generate` - Create Al-powered documents\n"
         "   • Choose format (Word/PDF)\n\n"
         "*Image Generation:*\n"
         "🎨 `/image` - Generate images from prompts\n"

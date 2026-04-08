@@ -14,6 +14,11 @@ class AIGenerationService:
     """
 
     ENDPOINT = "https://openrouter.ai/v1/chat/completions"
+    ANTI_HALLUCINATION_INSTRUCTIONS = (
+        "When answering, do not invent facts. Base your response only on the supplied input. "
+        "If the information is missing or uncertain, say 'I cannot verify this from the input.' "
+        "Avoid speculation and clearly flag uncertainty."
+    )
 
     def __init__(self, api_key=None, model=None):
         """
@@ -37,6 +42,7 @@ class AIGenerationService:
             Analysis string with summary, key points, insights, and actions
         """
         prompt = (
+            f"{self.ANTI_HALLUCINATION_INSTRUCTIONS}\n\n"
             "Analyze the following document text and provide:\n"
             "1. A concise summary (2-3 sentences)\n"
             "2. 5 key points\n"
@@ -45,7 +51,15 @@ class AIGenerationService:
             f"Document text:\n{text[:10000]}"
         )
 
-        return self._make_request(prompt, system_role="You are a helpful assistant that analyzes documents.")
+        analysis = self._make_request(
+            prompt,
+            system_role="You are a helpful assistant that analyzes documents.",
+            max_tokens=1200,
+            temperature=0.2
+        )
+
+        verification = self.verify_response(analysis, text)
+        return f"{analysis}\n\n---\n*Hallucination check:*\n{verification}"
 
     def generate_document(self, topic):
         """
@@ -66,7 +80,8 @@ class AIGenerationService:
         return self._make_request(
             prompt,
             system_role="You are a professional document generator.",
-            max_tokens=2000
+            max_tokens=2000,
+            temperature=0.2
         )
 
     def generate_image_prompts(self, text, count=3):
@@ -87,6 +102,32 @@ class AIGenerationService:
 
         response = self._make_request(prompt, max_tokens=500)
         return response.split('\n') if response else []
+
+    def verify_response(self, response_text, source_text):
+        """
+        Verify generated response against source content to catch hallucinations.
+        
+        Args:
+            response_text: Generated AI output
+            source_text: Original source or document text
+        
+        Returns:
+            Text summary of whether any unsupported claims were detected
+        """
+        prompt = (
+            "You are a precise verifier. Review the response below and compare it to the source content. "
+            "List any statements that cannot be verified from the source. "
+            "If the response is fully grounded, reply with 'Verified: no unsupported claims found.'\n\n"
+            f"Source content:\n{source_text[:8000]}\n\n"
+            f"Response:\n{response_text[:4000]}"
+        )
+
+        return self._make_request(
+            prompt,
+            system_role="You are a precise verifier that detects unsupported claims.",
+            max_tokens=300,
+            temperature=0.2
+        )
 
     def _make_request(self, prompt, system_role="You are a helpful assistant", 
                      max_tokens=1000, temperature=0.7):

@@ -1,6 +1,6 @@
-# AI-Powered Office Document & Image Automation System
+# Al-Powered Office Document Automation System
 
-A comprehensive Telegram bot that combines document analysis, generation, and AI-powered image creation for a complete office automation solution.
+A comprehensive Telegram bot that combines document analysis, generation, and Al-powered image creation for a complete office automation solution.
 
 ## 🌟 Features
 
@@ -8,7 +8,8 @@ A comprehensive Telegram bot that combines document analysis, generation, and AI
 - Accept PDF, Word (.docx), Excel (.xlsx) files
 - Auto-detect file type and process accordingly
 - Extract text from documents
-- AI-powered analysis using OpenRouter, OpenAI, Groq, or Gemini APIs
+- Al-powered analysis using OpenRouter, OpenAI, Groq, or Gemini APIs
+- Anti-hallucination guardrails for source-grounded results
 - Returns: Summary, 5 Key Points, 1 Smart Insight, Action Items
 
 ### ✏️ Document Generation
@@ -149,6 +150,8 @@ curl -X POST http://localhost:5000/api/documents/analyze \
 - Document analysis
 - Content generation
 - Image prompt generation
+- Built-in hallucination reduction instructions
+- Fact-check verification for analysis outputs
 
 ### DocumentReader
 - PDF text extraction
@@ -316,7 +319,7 @@ This project is provided as-is for educational and development purposes.
 **Last Updated:** January 2024  
 **Status:** Production Ready ✅
 
-- `/generate` - Generate a new AI-powered document
+- `/generate` - Generate a new Al-powered document
   - Choose format: Word (.docx) or PDF
   - Custom styling and sections
 

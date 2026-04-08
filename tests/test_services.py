@@ -168,6 +168,25 @@ class TestAIGenerationService(unittest.TestCase):
         
         result = self.ai_service.generate_document("Test topic")
         self.assertIsNotNone(result)
+        self.assertEqual(mock_post.call_args.kwargs['json']['temperature'], 0.2)
+
+    @patch('requests.post')
+    def test_analyze_document_hallucination_check(self, mock_post: Mock) -> None:
+        """Test document analysis includes a hallucination verification step."""
+        analysis_response = Mock()
+        analysis_response.json.return_value = {
+            "choices": [{"message": {"content": "Test analysis"}}]
+        }
+        verify_response = Mock()
+        verify_response.json.return_value = {
+            "choices": [{"message": {"content": "Verified: no unsupported claims found."}}]
+        }
+        mock_post.side_effect = [analysis_response, verify_response]
+
+        result = self.ai_service.analyze_document("Test document text")
+        self.assertIn("Test analysis", result)
+        self.assertIn("Hallucination check", result)
+        self.assertEqual(mock_post.call_count, 2)
 
 
 class TestImageGalleryService(unittest.TestCase):

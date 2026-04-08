@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Quick setup and test script for the AI-Powered Office Document Automation System.
+Quick setup and test script for the Al-Powered Office Document Automation System.
 """
 
 import os
@@ -99,7 +99,7 @@ def test_config():
 
 def main():
     """Run all checks."""
-    print("🚀 AI-Powered Office Document Automation System - Setup Check")
+    print("🚀 Al-Powered Office Document Automation System - Setup Check")
     print("=" * 60)
 
     checks = [
