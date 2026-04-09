@@ -731,3 +731,945 @@
 2026-04-08 12:47:34,947 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 409 Conflict"
 2026-04-08 12:47:34,949 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
 2026-04-08 12:47:42,000 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:36:14,093 - src.services.image_generator - INFO - InferenceClient initialized with model: black-forest-labs/FLUX.1-Krea-dev
+2026-04-09 02:37:02,125 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-04-09 02:37:02,125 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-04-09 02:37:02,771 - huggingface_hub.utils._http - WARNING - '[Errno 11001] getaddrinfo failed' thrown while requesting HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json
+2026-04-09 02:37:02,771 - huggingface_hub.utils._http - WARNING - Retrying in 1s [Retry 1/5].
+2026-04-09 02:37:03,780 - __main__ - ERROR - Failed to start bot: Cannot send a request, as the client has been closed.
+2026-04-09 02:39:41,525 - src.services.image_generator - INFO - InferenceClient initialized with model: black-forest-labs/FLUX.1-Krea-dev
+2026-04-09 02:39:52,088 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-04-09 02:39:52,089 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-04-09 02:39:56,132 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:39:56,939 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-09 02:39:57,849 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:39:58,052 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-09 02:39:58,402 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:39:58,559 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-09 02:39:59,019 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:39:59,259 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-04-09 02:39:59,723 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:39:59,883 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-09 02:40:00,371 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:40:00,713 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-04-09 02:40:01,211 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-04-09 02:40:01,708 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:40:02,385 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-09 02:40:03,029 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:40:03,146 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-09 02:40:03,505 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:40:03,642 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-09 02:40:04,083 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-09 02:40:04,465 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-09 02:40:04,963 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:40:05,106 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-04-09 02:40:05,465 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-04-09 02:40:05,540 - src.services.language_detection - INFO - langdetect library available
+2026-04-09 02:40:05,540 - __main__ - INFO - All services initialized successfully
+2026-04-09 02:40:06,332 - __main__ - INFO - Bot running with advanced features...
+2026-04-09 02:40:07,745 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getMe "HTTP/1.1 200 OK"
+2026-04-09 02:40:08,226 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/deleteWebhook "HTTP/1.1 200 OK"
+2026-04-09 02:40:08,232 - telegram.ext.Application - INFO - Application started
+2026-04-09 02:40:13,790 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 02:40:13,793 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 02:40:20,644 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 02:40:20,648 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 02:40:26,125 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 02:40:26,127 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 02:40:33,770 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 02:40:33,771 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 02:40:42,175 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 02:40:42,180 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 02:40:53,127 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 02:40:53,130 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 02:41:08,107 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 02:41:08,109 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 02:41:21,279 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 02:41:21,281 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 02:41:48,620 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 02:41:48,623 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 02:42:18,608 - src.services.image_generator - INFO - InferenceClient initialized with model: black-forest-labs/FLUX.1-Krea-dev
+2026-04-09 02:42:29,995 - src.services.image_generator - INFO - InferenceClient initialized with model: black-forest-labs/FLUX.1-Krea-dev
+2026-04-09 02:42:38,985 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-04-09 02:42:38,985 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-04-09 02:42:42,041 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:42:42,202 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-09 02:42:42,865 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:42:43,712 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-09 02:42:44,541 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:42:46,046 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-09 02:42:50,469 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:42:51,833 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-04-09 02:42:53,211 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:42:55,999 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-09 02:42:58,159 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:42:58,793 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-04-09 02:43:02,026 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-04-09 02:43:03,428 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:43:04,105 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-09 02:43:04,908 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:43:05,747 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-09 02:43:06,203 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:43:06,444 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-09 02:43:07,464 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-09 02:43:08,262 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-09 02:43:09,519 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:43:09,743 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-04-09 02:43:10,540 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-04-09 02:43:10,573 - src.services.language_detection - INFO - langdetect library available
+2026-04-09 02:43:10,573 - __main__ - INFO - All services initialized successfully
+2026-04-09 02:43:11,403 - __main__ - INFO - Bot running with advanced features...
+2026-04-09 02:43:15,154 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getMe "HTTP/1.1 200 OK"
+2026-04-09 02:43:15,663 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/deleteWebhook "HTTP/1.1 200 OK"
+2026-04-09 02:43:15,668 - telegram.ext.Application - INFO - Application started
+2026-04-09 02:43:27,130 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:43:37,715 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:43:49,024 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:43:59,395 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:44:09,750 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:44:20,109 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:44:30,514 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:44:40,960 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:44:51,337 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:45:02,011 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:45:12,420 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:45:24,681 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:45:24,684 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2026-04-09 02:45:24,684 - telegram.ext.Application - INFO - Application.stop() complete
+2026-04-09 02:45:34,355 - src.services.image_generator - INFO - InferenceClient initialized with model: black-forest-labs/FLUX.1-Krea-dev
+2026-04-09 02:45:43,214 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-04-09 02:45:43,214 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-04-09 02:45:45,291 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:45:45,683 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-09 02:45:46,268 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:45:46,418 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-09 02:45:46,817 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:45:47,113 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-09 02:45:47,539 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:45:47,657 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-04-09 02:45:48,092 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:45:48,257 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-09 02:45:48,629 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:45:48,945 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-04-09 02:45:49,473 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-04-09 02:45:49,994 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:45:50,257 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-09 02:45:50,970 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:45:51,607 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-09 02:45:52,027 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:45:52,261 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-09 02:45:52,697 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-09 02:45:53,057 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-09 02:45:54,377 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:45:54,587 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-04-09 02:45:55,184 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-04-09 02:45:55,364 - src.services.language_detection - INFO - langdetect library available
+2026-04-09 02:45:55,364 - __main__ - INFO - All services initialized successfully
+2026-04-09 02:45:56,226 - __main__ - INFO - Bot running with advanced features...
+2026-04-09 02:45:59,918 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getMe "HTTP/1.1 200 OK"
+2026-04-09 02:46:00,392 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/deleteWebhook "HTTP/1.1 200 OK"
+2026-04-09 02:46:00,396 - telegram.ext.Application - INFO - Application started
+2026-04-09 02:46:01,542 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:46:03,176 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:46:13,709 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:46:19,064 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:46:32,947 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8658817996:AAFwRwTqy6crqv1I6_ZYy86LhXzdEHzTaNk/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:49:50,190 - src.services.image_generator - INFO - InferenceClient initialized with model: black-forest-labs/FLUX.1-Krea-dev
+2026-04-09 02:50:02,004 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-04-09 02:50:02,004 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-04-09 02:50:08,926 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:50:09,011 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-09 02:50:09,524 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:50:09,585 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-09 02:50:10,034 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:50:10,100 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-09 02:50:10,458 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:50:10,541 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-04-09 02:50:10,881 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:50:11,025 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-09 02:50:11,410 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:50:11,654 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-04-09 02:50:12,077 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-04-09 02:50:12,458 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:50:12,679 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-09 02:50:13,479 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:50:13,778 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-09 02:50:14,390 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:50:15,065 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-09 02:50:15,917 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-09 02:50:16,489 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-09 02:50:16,882 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 02:50:17,006 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-04-09 02:50:17,369 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-04-09 02:50:17,402 - src.services.language_detection - INFO - langdetect library available
+2026-04-09 02:50:17,402 - __main__ - INFO - All services initialized successfully
+2026-04-09 02:50:18,260 - __main__ - INFO - Bot running with advanced features...
+2026-04-09 02:50:22,115 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getMe "HTTP/1.1 200 OK"
+2026-04-09 02:50:22,629 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/deleteWebhook "HTTP/1.1 200 OK"
+2026-04-09 02:50:22,635 - telegram.ext.Application - INFO - Application started
+2026-04-09 02:50:28,929 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 02:50:28,931 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 02:50:34,443 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 02:50:34,445 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 02:50:41,061 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 02:50:41,063 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 02:50:58,347 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 02:50:59,394 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 02:51:00,904 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 02:51:10,457 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 02:51:11,470 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 02:51:39,527 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 02:51:44,541 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 02:51:46,057 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 02:51:48,353 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 02:52:01,770 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 02:52:02,777 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 02:52:04,302 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 02:52:06,568 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 02:52:26,478 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 02:52:38,997 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 02:53:15,095 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 02:53:23,086 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 02:53:28,108 - __main__ - ERROR - Error: Timed out
+2026-04-09 02:53:33,118 - telegram.ext.Application - ERROR - An error was raised and an uncaught error was raised while handling the error with an error_handler.
+Traceback (most recent call last):
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        pool_request.request
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 279, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\ext\_application.py", line 1928, in process_error
+    await callback(update, context)
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\bot.py", line 588, in error_handler
+    await update.message.reply_text("❌ An error occurred. Please try again.")
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\_message.py", line 2106, in reply_text
+    return await self.get_bot().send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<21 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 3118, in send_message
+    return await super().send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<23 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\_bot.py", line 1123, in send_message
+    return await self._send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<21 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 630, in _send_message
+    result = await super()._send_message(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<23 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\_bot.py", line 820, in _send_message
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\_bot.py", line 704, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 370, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\_bot.py", line 733, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 305, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 296, in do_request
+    raise TimedOut from err
+telegram.error.TimedOut: Timed out
+2026-04-09 02:53:38,424 - __main__ - ERROR - Error: Timed out
+2026-04-09 02:53:43,437 - telegram.ext.Application - ERROR - An error was raised and an uncaught error was raised while handling the error with an error_handler.
+Traceback (most recent call last):
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        pool_request.request
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 279, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\ext\_application.py", line 1928, in process_error
+    await callback(update, context)
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\bot.py", line 588, in error_handler
+    await update.message.reply_text("❌ An error occurred. Please try again.")
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\_message.py", line 2106, in reply_text
+    return await self.get_bot().send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<21 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 3118, in send_message
+    return await super().send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<23 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\_bot.py", line 1123, in send_message
+    return await self._send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<21 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 630, in _send_message
+    result = await super()._send_message(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<23 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\_bot.py", line 820, in _send_message
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\_bot.py", line 704, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 370, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\_bot.py", line 733, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 305, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 296, in do_request
+    raise TimedOut from err
+telegram.error.TimedOut: Timed out
+2026-04-09 02:53:56,502 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 02:54:09,547 - telegram.ext.Updater - ERROR - Error while calling `get_updates` one more time to mark all fetched updates. Suppressing error to ensure graceful shutdown. When polling for updates is restarted, updates may be fetched again. Please adjust timeouts via `ApplicationBuilder` or the parameter `get_updates_request` of `Bot`.
+Traceback (most recent call last):
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        pool_request.request
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\connection.py", line 101, in handle_async_request
+    raise exc
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\connection.py", line 78, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\connection.py", line 124, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_backends\auto.py", line 31, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_backends\anyio.py", line 113, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 279, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\ext\_updater.py", line 400, in _get_updates_cleanup
+    await self.bot.get_updates(
+    ...<4 lines>...
+    )
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 672, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\_bot.py", line 4865, in get_updates
+    await self._post(
+    ^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    ),
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\_bot.py", line 704, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 370, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\_bot.py", line 733, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 305, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 303, in do_request
+    raise NetworkError(f"httpx.{err.__class__.__name__}: {err}") from err
+telegram.error.NetworkError: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 02:54:09,597 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2026-04-09 02:54:09,597 - telegram.ext.Application - INFO - Application.stop() complete
+2026-04-09 03:03:24,309 - src.services.image_generator - INFO - InferenceClient initialized with model: black-forest-labs/FLUX.1-Krea-dev
+2026-04-09 03:03:35,740 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-04-09 03:03:35,740 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-04-09 03:03:51,524 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:03:54,972 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-09 03:03:57,832 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:04:02,884 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-09 03:04:10,557 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:04:18,382 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-09 03:04:24,518 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:04:32,356 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-04-09 03:04:40,192 - __main__ - ERROR - Failed to start bot: expected str, bytes or os.PathLike object, not NoneType
+2026-04-09 03:05:51,316 - src.services.image_generator - INFO - InferenceClient initialized with model: black-forest-labs/FLUX.1-Krea-dev
+2026-04-09 03:06:02,211 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-04-09 03:06:02,211 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-04-09 03:06:03,377 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:06:03,446 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-09 03:06:03,784 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:06:03,831 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-09 03:06:04,183 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:06:04,279 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-09 03:06:04,689 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:06:04,790 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-04-09 03:06:05,199 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:06:05,302 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-09 03:06:05,609 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:06:05,711 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-04-09 03:06:06,021 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-04-09 03:06:06,984 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:06:08,271 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-09 03:06:08,981 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:06:09,048 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-09 03:06:09,398 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:06:09,508 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-09 03:06:09,851 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-09 03:06:10,213 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-09 03:06:10,729 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:06:10,934 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-04-09 03:06:11,241 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-04-09 03:06:11,288 - src.services.language_detection - INFO - langdetect library available
+2026-04-09 03:06:11,289 - __main__ - INFO - All services initialized successfully
+2026-04-09 03:06:12,944 - __main__ - INFO - Bot running with advanced features...
+2026-04-09 03:06:14,010 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getMe "HTTP/1.1 200 OK"
+2026-04-09 03:06:14,379 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/deleteWebhook "HTTP/1.1 200 OK"
+2026-04-09 03:06:14,389 - telegram.ext.Application - INFO - Application started
+2026-04-09 03:06:25,392 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:06:35,653 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:06:45,864 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:06:56,070 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:07:06,433 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:07:16,673 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:07:26,900 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:07:37,255 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:07:47,598 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:07:52,280 - src.services.image_generator - INFO - InferenceClient initialized with model: black-forest-labs/FLUX.1-Krea-dev
+2026-04-09 03:07:57,920 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:08:03,975 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-04-09 03:08:03,975 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2026-04-09 03:08:05,115 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:08:06,300 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-09 03:08:07,184 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:08:07,360 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-09 03:08:07,675 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:08:07,761 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-04-09 03:08:08,180 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:08:08,290 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-04-09 03:08:08,691 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:08:08,756 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-04-09 03:08:09,101 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:08:09,203 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:08:09,203 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-04-09 03:08:09,612 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-04-09 03:08:09,928 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:08:10,004 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-09 03:08:10,637 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:08:10,739 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-04-09 03:08:11,149 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:08:11,251 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-09 03:08:11,663 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-09 03:08:11,969 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-09 03:08:12,378 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-09 03:08:12,481 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-04-09 03:08:12,886 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-04-09 03:08:13,068 - src.services.language_detection - INFO - langdetect library available
+2026-04-09 03:08:13,069 - __main__ - INFO - All services initialized successfully
+2026-04-09 03:08:14,308 - __main__ - INFO - Bot running with advanced features...
+2026-04-09 03:08:15,041 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getMe "HTTP/1.1 200 OK"
+2026-04-09 03:08:15,300 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/deleteWebhook "HTTP/1.1 200 OK"
+2026-04-09 03:08:15,305 - telegram.ext.Application - INFO - Application started
+2026-04-09 03:08:15,959 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:08:15,962 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:08:20,262 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:08:20,265 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:08:21,593 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:08:21,598 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:08:26,311 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:08:26,314 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:08:28,386 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:08:28,389 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:08:33,871 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:08:33,872 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:08:36,448 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:08:36,451 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:08:40,316 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:08:40,318 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:08:44,029 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:08:44,034 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:08:50,060 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:08:50,063 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:08:55,830 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:08:55,835 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:09:04,498 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:09:04,500 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:09:13,612 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:09:13,617 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:09:23,647 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:09:25,797 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:09:25,800 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:09:30,055 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:09:30,059 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:09:37,061 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:09:47,300 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:09:48,632 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:09:48,635 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:09:52,933 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:09:52,937 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:09:59,895 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:10:10,345 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:10:19,682 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:10:19,692 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:10:24,164 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:10:24,169 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:10:30,963 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:10:41,172 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:10:51,584 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:10:55,088 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:10:55,091 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:10:59,593 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:10:59,598 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:11:06,515 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:11:16,771 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:11:27,209 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:11:30,519 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:11:30,522 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:11:35,022 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:11:35,027 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:11:42,089 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:11:52,534 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:12:02,961 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:12:06,311 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:12:06,314 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:12:10,812 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:12:10,818 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:12:17,796 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:12:28,692 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:12:39,486 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:13:09,545 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 03:13:10,560 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 03:13:10,992 - __main__ - ERROR - Error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-04-09 03:15:40,562 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:15:40,585 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:15:45,691 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:15:45,695 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:15:51,180 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:15:51,187 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:15:59,518 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 409 Conflict"
+2026-04-09 03:15:59,521 - __main__ - ERROR - Error: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-04-09 03:18:11,569 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8259464539:AAF5d9mSckDrhxgDR4C4feulqmV7WgTjltE/getUpdates "HTTP/1.1 200 OK"
+2026-04-09 03:18:27,026 - telegram.ext.Updater - ERROR - Error while calling `get_updates` one more time to mark all fetched updates. Suppressing error to ensure graceful shutdown. When polling for updates is restarted, updates may be fetched again. Please adjust timeouts via `ApplicationBuilder` or the parameter `get_updates_request` of `Bot`.
+Traceback (most recent call last):
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_transports\default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        pool_request.request
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\http11.py", line 136, in handle_async_request
+    raise exc
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_async\http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.READ_NUM_BYTES, timeout=timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_backends\anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 279, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1540, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_transports\default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\ext\_updater.py", line 400, in _get_updates_cleanup
+    await self.bot.get_updates(
+    ...<4 lines>...
+    )
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 672, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\_bot.py", line 4865, in get_updates
+    await self._post(
+    ^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    ),
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\_bot.py", line 704, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 370, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\_bot.py", line 733, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 305, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\Rajat\Downloads\Al-Powered-Office-Document-Automation-System-main\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 296, in do_request
+    raise TimedOut from err
+telegram.error.TimedOut: Timed out
+2026-04-09 03:18:27,184 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2026-04-09 03:18:27,187 - telegram.ext.Application - INFO - Application.stop() complete

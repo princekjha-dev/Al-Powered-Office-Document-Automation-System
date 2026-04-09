@@ -3,6 +3,7 @@ Document generation service - Create Word and PDF documents.
 """
 
 import os
+import tempfile
 from datetime import datetime
 from docx import Document
 from docx.shared import Pt, RGBColor, Inches
@@ -11,6 +12,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
+from reportlab.lib.colors import HexColor
 
 
 class DocumentGenerator:
@@ -19,7 +21,7 @@ class DocumentGenerator:
     """
 
     @staticmethod
-    def generate_docx(title, content, filename=None, output_dir="/tmp"):
+    def generate_docx(title, content, filename=None, output_dir=""):
         """
         Generate a Word document (.docx) with the given title and content.
         
@@ -32,6 +34,10 @@ class DocumentGenerator:
         Returns:
             The file path of the generated document
         """
+        if not output_dir:
+            output_dir = tempfile.gettempdir()
+        os.makedirs(output_dir, exist_ok=True)
+        
         if filename is None:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             filename = f"document_{timestamp}"
@@ -104,7 +110,7 @@ class DocumentGenerator:
         return filepath
 
     @staticmethod
-    def generate_pdf(title, content, filename=None, output_dir="/tmp"):
+    def generate_pdf(title, content, filename=None, output_dir=""):
         """
         Generate a PDF document with the given title and content.
         
@@ -117,6 +123,10 @@ class DocumentGenerator:
         Returns:
             The file path of the generated document
         """
+        if not output_dir:
+            output_dir = tempfile.gettempdir()
+        os.makedirs(output_dir, exist_ok=True)
+        
         if filename is None:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             filename = f"document_{timestamp}"
@@ -136,7 +146,7 @@ class DocumentGenerator:
             'CustomTitle',
             parent=styles['Heading1'],
             fontSize=24,
-            textColor=RGBColor(31, 78, 120),
+            textColor=HexColor('#1f4e78'),
             spaceAfter=12,
             alignment=1  # CENTER
         )
@@ -145,7 +155,7 @@ class DocumentGenerator:
             'CustomHeading',
             parent=styles['Heading2'],
             fontSize=14,
-            textColor=RGBColor(31, 78, 120),
+            textColor=HexColor('#1f4e78'),
             spaceAfter=10,
             spaceBefore=10
         )

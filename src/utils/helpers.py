@@ -15,13 +15,23 @@ def setup_logging(log_level='INFO', log_file='app.log'):
         log_level: Logging level
         log_file: Log file path
     """
+    import sys
+    
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    
+    # File handler with UTF-8 encoding
+    file_handler = logging.FileHandler(log_file, encoding='utf-8')
+    file_handler.setFormatter(formatter)
+    
+    # Stream handler with UTF-8 encoding (fixes Windows cp1252 emoji crash)
+    stream_handler = logging.StreamHandler(
+        stream=open(sys.stdout.fileno(), mode='w', encoding='utf-8', closefd=False)
+    )
+    stream_handler.setFormatter(formatter)
+    
     logging.basicConfig(
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         level=log_level,
-        handlers=[
-            logging.FileHandler(log_file),
-            logging.StreamHandler()
-        ]
+        handlers=[file_handler, stream_handler]
     )
 
 

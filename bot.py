@@ -190,7 +190,7 @@ async def handle_document(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
                 )
             
             # Create chat session for this document
-            session_id = Services.doc_chat.create_session(user_id, text)
+            session_id = Services.doc_chat.create_session(text, user_id)
             context.user_data['current_doc_session'] = session_id
             context.user_data['last_doc_text'] = text
             
@@ -237,12 +237,23 @@ async def handle_response_action(update: Update, context: ContextTypes.DEFAULT_T
             reply_markup=reply_markup
         )
         context.user_data['comparing'] = True
-    else:
+    elif choice == '❌ Done':
         await update.message.reply_text("✅ Done!", reply_markup=reply_markup)
+    else:
+        # Not a keyboard response, pass through
+        return False
+    return True
 
 
 async def handle_document_questions(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Handle document chat questions."""
+    """Handle document chat questions and post-analysis keyboard responses."""
+    # First check if this is a keyboard response from post-analysis
+    choice = update.message.text
+    if choice in ['🎨 Images', '💬 Ask', '🔍 Compare', '❌ Done']:
+        handled = await handle_response_action(update, context)
+        if handled:
+            return
+
     if context.user_data.get('in_chat_mode'):
         question = update.message.text
         session_id = context.user_data.get('current_doc_session')
@@ -256,7 +267,7 @@ async def handle_document_questions(update: Update, context: ContextTypes.DEFAUL
         
         try:
             # Get answer from DocumentChat service using RAG
-            answer = Services.doc_chat.ask_question(session_id, question)
+            answer = Services.doc_chat.answer_question(session_id, question, Services.ai_service)
             await update.message.reply_text(f"💬 *Answer*\n\n{answer}", parse_mode='Markdown')
             
         except Exception as e:
@@ -271,7 +282,10 @@ async def handle_document_questions(update: Update, context: ContextTypes.DEFAUL
         if doc1_text and doc2_text:
             await update.message.reply_text("🔍 Comparing documents...")
             try:
-                comparison = Services.doc_comparison.compare(doc1_text, doc2_text)
+                result = Services.doc_comparison.compare_text(doc1_text, doc2_text)
+                summary = Services.doc_comparison.get_change_summary(result)
+                key_changes = Services.doc_comparison.get_key_changes(result)
+                comparison = f"{summary}\n\n{key_changes}"
                 await update.message.reply_text(f"📊 *Comparison*\n\n{comparison}", parse_mode='Markdown')
                 context.user_data['comparing'] = False
             except Exception as e:
@@ -493,8 +507,76 @@ async def stats_view(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     await update.message.reply_text(stats_text, parse_mode='Markdown')
 
 
+async def ask_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Start document Q&A mode."""
+    session_id = context.user_data.get('current_doc_session')
+    if not session_id:
+        await update.message.reply_text(
+            "❌ No document loaded. Upload a document first, then use /ask."
+        )
+        return
+    context.user_data['in_chat_mode'] = True
+    await update.message.reply_text("💬 Ask a question about the document:")
+
+
+async def compare_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Start document comparison mode."""
+    doc_text = context.user_data.get('last_doc_text')
+    if not doc_text:
+        await update.message.reply_text(
+            "❌ No document loaded. Upload a document first, then use /compare."
+        )
+        return
+    context.user_data['comparing'] = True
+    await update.message.reply_text("📄 Send the text to compare with (or upload a second document):")
+
+
+async def category_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Show categorization for the last uploaded document."""
+    doc_text = context.user_data.get('last_doc_text')
+    if not doc_text:
+        await update.message.reply_text("❌ No document loaded. Upload a document first.")
+        return
+    try:
+        report = Services.doc_category.get_categorization_report(doc_text)
+        await update.message.reply_text(report, parse_mode='Markdown')
+    except Exception as e:
+        logger.error(f"Category error: {e}")
+        await update.message.reply_text(f"❌ Error: {str(e)}")
+
+
+async def quality_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Show quality report for the last uploaded document."""
+    doc_text = context.user_data.get('last_doc_text')
+    if not doc_text:
+        await update.message.reply_text("❌ No document loaded. Upload a document first.")
+        return
+    try:
+        report = Services.doc_quality.get_quality_report(doc_text)
+        await update.message.reply_text(report, parse_mode='Markdown')
+    except Exception as e:
+        logger.error(f"Quality error: {e}")
+        await update.message.reply_text(f"❌ Error: {str(e)}")
+
+
+async def language_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Show language detection for the last uploaded document."""
+    doc_text = context.user_data.get('last_doc_text')
+    if not doc_text:
+        await update.message.reply_text("❌ No document loaded. Upload a document first.")
+        return
+    try:
+        info = Services.language_detection.get_language_info(doc_text)
+        await update.message.reply_text(info, parse_mode='Markdown')
+    except Exception as e:
+        logger.error(f"Language detection error: {e}")
+        await update.message.reply_text(f"❌ Error: {str(e)}")
+
+
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     """Cancel operation."""
+    context.user_data.pop('in_chat_mode', None)
+    context.user_data.pop('comparing', None)
     await update.message.reply_text("❌ Cancelled", reply_markup=ReplyKeyboardRemove())
     return ConversationHandler.END
 
@@ -534,6 +616,11 @@ def main() -> None:
         application.add_handler(CommandHandler("help", help_command))
         application.add_handler(CommandHandler("gallery", gallery_view))
         application.add_handler(CommandHandler("stats", stats_view))
+        application.add_handler(CommandHandler("ask", ask_start))
+        application.add_handler(CommandHandler("compare", compare_start))
+        application.add_handler(CommandHandler("category", category_command))
+        application.add_handler(CommandHandler("quality", quality_command))
+        application.add_handler(CommandHandler("language", language_command))
         
         # Document generation
         doc_conv = ConversationHandler(

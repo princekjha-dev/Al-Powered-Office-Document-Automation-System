@@ -145,18 +145,19 @@ class DocumentCategorization:
         
         # Use AI for advanced tag generation if available
         if ai_service:
-            ai_tags = self._ai_generate_tags(text, list(tags))
+            ai_tags = self._ai_generate_tags(text, list(tags), ai_service)
             tags.update(ai_tags)
         
         return list(tags)
 
-    def _ai_generate_tags(self, text: str, existing_tags: List[str]) -> List[str]:
+    def _ai_generate_tags(self, text: str, existing_tags: List[str], ai_service) -> List[str]:
         """
         Use AI to generate additional tags.
         
         Args:
             text: Document text
             existing_tags: Tags already identified
+            ai_service: AI service for tag generation
         
         Returns:
             Additional tags
@@ -172,7 +173,7 @@ class DocumentCategorization:
         )
         
         try:
-            response = self.ai_service.call_ai(prompt).strip()
+            response = ai_service.call_ai(prompt).strip()
             tags = [tag.strip().lower().replace(" ", "_") for tag in response.split(",")]
             return [tag for tag in tags if tag and len(tag) > 2]
         except Exception as e:

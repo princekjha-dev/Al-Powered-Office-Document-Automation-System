@@ -13,7 +13,7 @@ class AIGenerationService:
     Service for AI text generation using OpenRouter API.
     """
 
-    ENDPOINT = "https://openrouter.ai/v1/chat/completions"
+    ENDPOINT = "https://openrouter.ai/api/v1/chat/completions"
     ANTI_HALLUCINATION_INSTRUCTIONS = (
         "When answering, do not invent facts. Base your response only on the supplied input. "
         "If the information is missing or uncertain, say 'I cannot verify this from the input.' "
@@ -172,19 +172,39 @@ class AIGenerationService:
         headers = {
             'Content-Type': 'application/json',
             'Authorization': f'Bearer {self.api_key}',
+            'HTTP-Referer': 'https://github.com/ai-document-bot',
+            'X-Title': 'AI Document Automation',
         }
 
-        try:
-            response = requests.post(self.ENDPOINT, headers=headers, json=payload, timeout=30)
-            response.raise_for_status()
-            result = response.json()
-            return result['choices'][0]['message']['content'].strip()
-        except Exception as e:
-            # Retry once
+        for attempt in range(2):
             try:
-                response = requests.post(self.ENDPOINT, headers=headers, json=payload, timeout=30)
-                response.raise_for_status()
+                response = requests.post(self.ENDPOINT, headers=headers, json=payload, timeout=60)
+                
+                # Check for HTTP errors
+                if response.status_code != 200:
+                    error_text = response.text[:500] if response.text else "Empty response"
+                    raise Exception(f"API returned HTTP {response.status_code}: {error_text}")
+                
+                # Check for empty response body
+                if not response.text or not response.text.strip():
+                    raise Exception("API returned empty response body")
+                
                 result = response.json()
+                
+                # Check for API-level errors
+                if 'error' in result:
+                    error_msg = result['error']
+                    if isinstance(error_msg, dict):
+                        error_msg = error_msg.get('message', str(error_msg))
+                    raise Exception(f"API error: {error_msg}")
+                
+                # Extract content
+                if 'choices' not in result or not result['choices']:
+                    raise Exception(f"No choices in API response: {str(result)[:200]}")
+                
                 return result['choices'][0]['message']['content'].strip()
-            except Exception as second_error:
-                raise Exception(f'API failed after retry: {second_error}')
+                
+            except Exception as e:
+                if attempt == 0:
+                    continue  # Retry once
+                raise Exception(f"API failed after retry: {e}")

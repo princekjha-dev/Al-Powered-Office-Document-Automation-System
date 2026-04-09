@@ -4,6 +4,7 @@ Centralized settings for the application.
 """
 
 import os
+import tempfile
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -17,7 +18,7 @@ class Config:
     
     # AI Services
     OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY')
-    OPENROUTER_MODEL = os.getenv('OPENROUTER_MODEL', 'gpt-4o-mini')
+    OPENROUTER_MODEL = os.getenv('OPENROUTER_MODEL', 'openai/gpt-4o-mini')
     OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
     GROQ_API_KEY = os.getenv('GROQ_API_KEY')
     GEMII_API_KEY = os.getenv('GEMII_API_KEY')
@@ -35,7 +36,7 @@ class Config:
     USERS_DIR = os.path.join(DATA_DIR, 'users')
     GALLERIES_DIR = os.path.join(DATA_DIR, 'galleries')
     SESSIONS_DIR = os.path.join(DATA_DIR, 'sessions')
-    TEMP_DIR = os.getenv('TEMP_DIR', '/tmp')
+    TEMP_DIR = os.getenv('TEMP_DIR', tempfile.gettempdir())
     
     # File Limits
     MAX_FILE_SIZE_MB = int(os.getenv('MAX_FILE_SIZE_MB', '20'))

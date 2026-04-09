@@ -37,6 +37,10 @@ class DocumentChat:
             logger.warning("sentence-transformers not installed. Using keyword matching instead.")
             self.embeddings_available = False
             self.model = None
+        except (TypeError, Exception) as e:
+            logger.warning(f"Failed to load SentenceTransformer model: {e}. Using keyword matching instead.")
+            self.embeddings_available = False
+            self.model = None
 
     def chunk_document(self, text: str, chunk_size: int = 300, overlap: int = 50) -> List[str]:
         """
