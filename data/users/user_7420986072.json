@@ -12,7 +12,7 @@
     "notifications_enabled": true
   },
   "statistics": {
-    "documents_processed": 1,
+    "documents_processed": 8,
     "documents_generated": 0,
     "images_generated": 0,
     "total_api_usage": 0

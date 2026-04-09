@@ -42,7 +42,7 @@ class DocumentChat:
             self.embeddings_available = False
             self.model = None
 
-    def chunk_document(self, text: str, chunk_size: int = 300, overlap: int = 50) -> List[str]:
+    def chunk_document(self, text: str, chunk_size: int = 800, overlap: int = 150) -> List[str]:
         """
         Split document into overlapping chunks for better retrieval.
         
@@ -86,6 +86,7 @@ class DocumentChat:
             "session_id": session_id,
             "user_id": user_id,
             "created_at": datetime.now().isoformat(),
+            "document_text": document_text[:15000],  # Store full text for broad questions
             "document_chunks": chunks,
             "chat_history": [],
             "embeddings": []
@@ -107,7 +108,7 @@ class DocumentChat:
         
         return session_id
 
-    def retrieve_context(self, session_id: str, question: str, top_k: int = 3) -> List[str]:
+    def retrieve_context(self, session_id: str, question: str, top_k: int = 5) -> List[str]:
         """
         Retrieve relevant chunks from document based on question.
         
@@ -161,6 +162,11 @@ class DocumentChat:
         
         # Sort by match count
         scored_chunks.sort(key=lambda x: x[2], reverse=True)
+        
+        # If very few keyword matches, return first chunks as fallback
+        if len(scored_chunks) < 2:
+            return chunks[:top_k]
+        
         return [chunk for _, chunk, _ in scored_chunks[:top_k]]
 
     def answer_question(self, session_id: str, question: str, ai_service) -> str:
@@ -175,40 +181,74 @@ class DocumentChat:
         Returns:
             Answer string
         """
-        # Retrieve context
-        context_chunks = self.retrieve_context(session_id, question, top_k=3)
+        # Load session to get full document text
+        session_file = os.path.join(self.data_dir, f"{session_id}.json")
+        full_text = ""
+        if os.path.exists(session_file):
+            with open(session_file, 'r') as f:
+                session_data = json.load(f)
+            full_text = session_data.get("document_text", "")
+
+        # Retrieve context chunks (specific relevant parts)
+        context_chunks = self.retrieve_context(session_id, question, top_k=5)
+
+        # Build context: use retrieved chunks + beginning of document for broad context
+        if context_chunks:
+            combined_context = "\n\n".join(context_chunks)
+        elif full_text:
+            combined_context = full_text[:4000]
+        else:
+            return "No document content found. Please upload a document first."
         
-        if not context_chunks:
-            return "I couldn't find relevant information in the document to answer this question."
+        # For broad questions (roadmap, plan, summary, etc.), include more document text
+        broad_keywords = ["roadmap", "plan", "create", "make", "build", "suggest", "recommend",
+                          "summarize", "summary", "overview", "list", "all", "everything",
+                          "based on", "from this", "from my", "using this"]
+        is_broad = any(kw in question.lower() for kw in broad_keywords)
         
-        # Prepare context for AI
-        combined_context = "\n\n".join(context_chunks)
+        if is_broad and full_text:
+            # Give the AI more document context for broad/creative questions
+            combined_context = full_text[:6000]
         
-        # Create prompt with context
+        # Create prompt
         prompt = (
-            f"Based on the following document excerpt:\n\n"
+            f"You have access to the following document content:\n\n"
             f"{combined_context}\n\n"
-            f"Answer this question: {question}\n\n"
-            f"If you cannot answer from the provided text, say so clearly."
+            f"User's request: {question}\n\n"
+            f"Use the document content as your primary reference. "
+            f"Answer thoroughly and helpfully based on the document. "
+            f"If the user asks you to create, generate, or build something "
+            f"(like a roadmap, plan, or summary), do it using the information in the document. "
+            f"Respond in plain text. No emojis. No decorative formatting."
         )
         
         try:
-            # Generate answer using AI service
-            response = ai_service.call_ai(prompt)
+            response = ai_service.call_ai(
+                prompt,
+                system_role=(
+                    "You are a document assistant. The user has uploaded a document and is asking "
+                    "questions about it. Use the document content to answer. When the user asks you "
+                    "to create something (a roadmap, plan, list, summary, etc.), use the document "
+                    "as your source material and produce the requested output. "
+                    "Never refuse to help if there is document content available. "
+                    "Write in plain text. Never use emojis."
+                ),
+                max_tokens=1500,
+            )
             
             # Store in chat history
-            session_file = os.path.join(self.data_dir, f"{session_id}.json")
-            with open(session_file, 'r') as f:
-                session = json.load(f)
-            
-            session["chat_history"].append({
-                "question": question,
-                "answer": response,
-                "timestamp": datetime.now().isoformat()
-            })
-            
-            with open(session_file, 'w') as f:
-                json.dump(session, f)
+            if os.path.exists(session_file):
+                with open(session_file, 'r') as f:
+                    session = json.load(f)
+                
+                session["chat_history"].append({
+                    "question": question,
+                    "answer": response,
+                    "timestamp": datetime.now().isoformat()
+                })
+                
+                with open(session_file, 'w') as f:
+                    json.dump(session, f)
             
             return response
         except Exception as e:

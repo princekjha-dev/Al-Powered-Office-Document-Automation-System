@@ -6,6 +6,8 @@ openpyxl
 python-dotenv
 reportlab
 pillow
+fastapi
+uvicorn
 flask
 flask-cors
 click

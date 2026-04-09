@@ -10,8 +10,8 @@ import subprocess
 def check_python_version():
     """Check Python version."""
     version = sys.version_info
-    if version.major < 3 or (version.major == 3 and version.minor < 8):
-        print("❌ Python 3.8+ required")
+    if version.major < 3 or (version.major == 3 and version.minor < 10):
+        print("❌ Python 3.10+ required")
         return False
     print(f"✅ Python {version.major}.{version.minor}.{version.micro}")
     return True
@@ -20,13 +20,14 @@ def check_dependencies():
     """Check if dependencies are installed."""
     try:
         import telegram
-        import requests
         import PyPDF2
         import docx
         import openpyxl
         import dotenv
         import reportlab
         import PIL
+        import fastapi
+        import uvicorn
         print("✅ All dependencies installed")
         return True
     except ImportError as e:

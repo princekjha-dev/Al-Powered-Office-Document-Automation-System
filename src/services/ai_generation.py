@@ -43,23 +43,27 @@ class AIGenerationService:
         """
         prompt = (
             f"{self.ANTI_HALLUCINATION_INSTRUCTIONS}\n\n"
-            "Analyze the following document text and provide:\n"
+            "Analyze the following document. Respond in plain text only — "
+            "no emojis, no markdown headers, no decorative formatting.\n\n"
+            "Provide:\n"
             "1. A concise summary (2-3 sentences)\n"
-            "2. 5 key points\n"
-            "3. 1 smart insight\n"
-            "4. Action items (if any)\n\n"
+            "2. Up to 5 key points (use numbered list)\n"
+            "3. One actionable insight\n"
+            "4. Action items if any\n\n"
             f"Document text:\n{text[:10000]}"
         )
 
-        analysis = self._make_request(
+        return self._make_request(
             prompt,
-            system_role="You are a helpful assistant that analyzes documents.",
+            system_role=(
+                "You are a professional document analyst. "
+                "Write in clear, direct prose. Never use emojis. "
+                "Do not add decorative headers or section labels with emoji icons. "
+                "Just present the information plainly."
+            ),
             max_tokens=1200,
             temperature=0.2
         )
-
-        verification = self.verify_response(analysis, text)
-        return f"{analysis}\n\n---\n*Hallucination check:*\n{verification}"
 
     def generate_document(self, topic):
         """
@@ -79,7 +83,7 @@ class AIGenerationService:
 
         return self._make_request(
             prompt,
-            system_role="You are a professional document generator.",
+            system_role="You are a professional document writer. Write in clear prose without emojis or decorative formatting.",
             max_tokens=2000,
             temperature=0.2
         )
@@ -103,7 +107,7 @@ class AIGenerationService:
         response = self._make_request(prompt, max_tokens=500)
         return response.split('\n') if response else []
 
-    def call_ai(self, prompt, system_role="You are a helpful assistant", 
+    def call_ai(self, prompt, system_role="You are a helpful assistant. Respond in plain text. Do not use emojis.", 
                max_tokens=1000, temperature=0.7):
         """
         Generic AI call method for use by other services.

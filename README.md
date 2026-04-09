@@ -1,297 +1,193 @@
-# Intellidoc — AI Document Intelligence System
+# IntelliDoc
 
-> A Telegram bot and web platform that acts as your smart office assistant.  
-> Upload any document and it will analyze, summarize, compare, score, translate, and generate new documents for you — powered by AI with built-in anti-hallucination safeguards.
+AI-powered document analysis platform. Upload PDFs, Word, or Excel files -- get summaries, insights, quality scoring, and answers in seconds.
 
----
-
-## Why This Exists
-
-Three converging realities make this system worth building:
-
-**1. Documents dominate office work.**  
-Contracts, reports, proposals, invoices — people spend hours reading, summarizing, and comparing them manually. Most of that work is mechanical and repeatable.
-
-**2. AI can handle the thinking.**  
-Modern language models understand document content at depth. But most tools are clunky, require special software, or hallucinate facts without warning the user.
-
-**3. Access should be universal.**  
-Telegram is already on every phone globally. A web dashboard handles power users and developers. No installs, no accounts, no training required to start.
-
-> **The insight:** if the interface is something people already use every day, the adoption barrier drops to zero. That is the design principle behind everything here.
+Built with Flask, vanilla JavaScript, and OpenRouter AI.
 
 ---
 
-## Two Interfaces, One Engine
+## Features
 
-Both interfaces share the same AI engine, document processor, context manager, and session state.
-
-### Telegram Bot
-- Zero-installation document intelligence — send a file directly in chat
-- Conversational Q&A grounded to the active document
-- Multi-turn session memory per user
-- Command-based workflow: `/chat`, `/compare`, `/generate`, and more
-- Works on any device with Telegram installed
-
-### Web Platform + REST API
-- Drag-and-drop document upload and management
-- Side-by-side document comparison view
-- Batch analysis across document collections
-- REST API with Bearer token authentication
-- Image gallery with search, filter, and export
-- Session history and usage analytics
+- **Document Analysis** -- Upload PDF, DOCX, or XLSX files for automatic text extraction, language detection, categorization, and AI-powered content analysis.
+- **Quality Scoring** -- Get a detailed quality assessment across five dimensions: clarity, grammar, coherence, completeness, and professionalism.
+- **Document Q&A** -- Ask natural language questions about uploaded documents and receive contextual answers.
+- **Document Generation** -- Generate professional Word or PDF documents from any topic using AI.
+- **Document Comparison** -- Compare two documents and view a detailed diff with similarity scoring.
+- **Image Generation** -- Create images from text prompts using Hugging Face models.
+- **Quick Tools** -- Standalone language detection, categorization, and quality scoring for any text.
+- **CLI Interface** -- Command-line tool for document analysis, generation, and image management.
+- **Telegram Bot** -- Full-featured Telegram bot interface with all the same capabilities.
 
 ---
 
-## Core Features
-
-### Main Features
-
-| Feature | Description |
-|---------|-------------|
-| **Context-Aware AI Chatbot** | Conversational AI grounded entirely in your uploaded document. Ask questions in plain English and receive answers sourced from the document text, not general knowledge. Maintains full conversation memory across turns. |
-| **Anti-Hallucination Engine** | Every AI-generated claim is cross-referenced against source content before delivery. Configurable confidence threshold. The system says "I cannot find this in the document" rather than fabricating an answer. |
-| **Smart Error Detection** | Two-pass linting: structural pass (broken references, malformed tables, encoding issues) and semantic pass (contradictions, missing sections, logical gaps). Each error returned with location, severity, and suggested fix. |
-| **Multi-Language Intelligence** | Detects and processes 30+ languages natively. Analysis, Q&A, comparison, and generation all adapt to the document's language automatically. Cross-language comparison supported. |
-
-### Core Features
-
-| Feature | Description |
-|---------|-------------|
-| **Document Analysis** | Upload PDF, DOCX, XLSX, or PPTX. Receive: summary, five key points, one non-obvious insight, action items, entity extraction, quality scores, language detection, and auto-categorization. |
-| **Document Comparison** | Structural diff plus semantic drift analysis. Shows what changed and what the meaning implications are — not just a text diff. |
-| **Document-Aware Image Generation** | Generate contextual visuals for documents and presentations using the file as reference context. The system reads the document's content and terminology to derive an enriched generation prompt. |
-| **Document Generation** | Generate a properly structured DOCX or PDF from a topic prompt. Can use an existing document as a style or content reference. |
-| **Quality Scoring** | Five-dimension assessment (clarity, grammar, coherence, completeness, professionalism), each on a 10-point scale with actionable improvement notes. |
-| **Auto-Categorization** | Classifies documents into category trees (contract, invoice, memo, report, proposal…) with a confidence score and extracted content tags. |
-| **Session and Context Management** | Per-user session state tracks active document, conversation history, detected language, and preferences. Context threads through every operation. |
-| **Image Gallery and Export** | Persistent per-user gallery, searchable by tag, source document, and date. Exportable as zip or embeddable into generated reports. |
-
----
-
-## What Happens When You Upload a Document
-
-Every upload triggers a five-stage pipeline automatically. No commands required for the initial report.
+## Project Structure
 
 ```
-Stage 1 — Language Detection
-  "Document detected in Spanish (94% confidence) — processing natively."
-
-Stage 2 — Auto-Categorization
-  "This looks like a Contract (87% confident). Tags: legal, payment, SLA."
-
-Stage 3 — Error Detection
-  Structural and semantic passes run simultaneously before AI analysis begins.
-
-Stage 4 — Quality Scoring
-  "Quality: 7.2 / 10 — Good clarity, but completeness could be improved."
-
-Stage 5 — AI Analysis and Chat Readiness
-  Summary + five key points + one non-obvious insight + action items.
-  Document is now indexed. Conversation begins.
+.
+├── website/                    # Web frontend
+│   ├── web_app.py              # Flask server and API endpoints
+│   ├── templates/
+│   │   └── index.html          # Single-page application
+│   └── static/
+│       ├── css/style.css       # Minimal dark theme
+│       └── js/app.js           # Frontend logic
+├── src/                        # Core backend
+│   ├── config/
+│   │   └── settings.py         # Centralized configuration
+│   ├── services/
+│   │   ├── ai_generation.py    # OpenRouter AI integration
+│   │   ├── document_reader.py  # PDF/DOCX/XLSX text extraction
+│   │   ├── document_generator.py # DOCX/PDF creation
+│   │   ├── document_chat.py    # Contextual Q&A over documents
+│   │   ├── document_comparison.py # Text diff and similarity
+│   │   ├── document_categorization.py # Content classification
+│   │   ├── document_quality.py # Quality scoring engine
+│   │   ├── language_detection.py # Language identification
+│   │   ├── image_generator.py  # HuggingFace image generation
+│   │   ├── image_gallery.py    # Image storage management
+│   │   └── chat_image_generator.py # Chat-based image prompts
+│   ├── models/
+│   │   ├── user.py             # User model and management
+│   │   └── storage.py          # Session and gallery storage
+│   ├── handlers/
+│   │   └── image_routes.py     # Image routing logic
+│   └── utils/
+│       └── helpers.py          # Logging and utility functions
+├── bot.py                      # Telegram bot entry point
+├── cli.py                      # Command-line interface
+├── dashboard.py                # FastAPI dashboard (legacy)
+├── tests/                      # Unit and integration tests
+├── requirements.txt            # Python dependencies
+├── setup.py                    # Setup verification script
+├── .env.example                # Environment variable template
+└── .gitignore
 ```
 
 ---
 
-## Anti-Hallucination System
+## Setup
 
-The system is designed to fail loudly — surfacing uncertainty rather than masking it.
+### Prerequisites
 
-> **Design principle:** When the system cannot verify a claim against source material, it says so. "I cannot find this in the document" is a valid and correct answer. Fabrication is treated as a critical fault, not an acceptable fallback.
+- Python 3.10 or higher
+- An OpenRouter API key ([openrouter.ai](https://openrouter.ai))
+- A Hugging Face token (optional, for image generation)
+- A Telegram bot token (optional, for the Telegram bot)
 
-**Five-stage verification pipeline:**
-
-1. **Retrieval** — Relevant chunks extracted via semantic similarity search (sentence-transformers)
-2. **Grounded Generation** — AI generates with explicit source constraints at the system prompt level; the model is instructed to cite or decline, never invent
-3. **Claim Verification** — Each claim is cross-checked against retrieved source chunks
-4. **Confidence Scoring** — Claims below `HALLUCINATION_THRESHOLD` are flagged inline or withheld
-5. **Delivery** — Response delivered with inline source references and a hallucination log appended to the session record
-
----
-
-## Quick Start
-
-**Prerequisites:** Python 3.10+ — Telegram Bot Token (BotFather) — OpenRouter API Key  
-Hugging Face token is optional; image generation falls back gracefully without it.
+### Installation
 
 ```bash
-# 1. Clone and enter
-git clone https://github.com/your-org/intellidoc
+# Clone the repository
+git clone https://github.com/your-username/intellidoc.git
 cd intellidoc
 
-# 2. Virtual environment
+# Create and activate a virtual environment
 python -m venv .venv
-source .venv/bin/activate        # Linux / Mac
-.venv\Scripts\activate           # Windows
+.venv\Scripts\activate        # Windows
+# source .venv/bin/activate   # macOS/Linux
 
-# 3. Install dependencies
+# Install dependencies
 pip install -r requirements.txt
 
-# 4. Configure
+# Copy environment template and add your keys
 cp .env.example .env
-# Edit .env with your API keys
-
-# 5. Verify setup
-python setup.py
-
-# 6. Run your preferred interface
-python bot.py          # Telegram bot
-python dashboard.py    # Web platform — http://localhost:5000
-python cli.py          # Command-line interface
 ```
 
-No Docker required. No database required for basic operation — all state is in-process per session.
+### Environment Variables
 
----
-
-## Configuration
+Edit `.env` with your API keys:
 
 ```env
 # Required
-TELEGRAM_TOKEN=your_telegram_bot_token
 OPENROUTER_API_KEY=your_openrouter_api_key
 
-# AI provider (swappable: openrouter | openai | groq)
-AI_PROVIDER=openrouter
-OPENROUTER_MODEL=openai/gpt-4o-mini
+# Optional -- Telegram bot
+TELEGRAM_TOKEN=your_telegram_bot_token
 
-# Image generation (optional — falls back to placeholder without it)
+# Optional -- Image generation
 HF_TOKEN=your_huggingface_token
-HF_IMAGE_MODEL=black-forest-labs/FLUX.1-Krea-dev
 
-# Anti-hallucination
-HALLUCINATION_THRESHOLD=0.72    # 0.0–1.0 confidence floor
-
-# Language
-DEFAULT_LANGUAGE=en             # Fallback when detection is inconclusive
-
-# Session
-SESSION_TIMEOUT_MINUTES=30      # Bot warns user at T-5 minutes
-MAX_DOCUMENT_SIZE_MB=20
+# AI model (default: openai/gpt-4o-mini)
+OPENROUTER_MODEL=openai/gpt-4o-mini
 ```
 
-Swapping AI providers requires only a config key change — no code changes, no prompt rewrites.
+See `.env.example` for the full list of configuration options.
 
 ---
 
-## Telegram Commands
+## Usage
 
-| Command | Description |
-|---------|-------------|
-| `/start` | Initialize a new session with quick-start guide |
-| `/help` | Full command reference with usage examples |
-| `/chat` | Context-aware Q&A mode grounded to the active document |
-| `/analyze` | Re-run the full five-stage analysis pipeline |
-| `/compare` | Compare active document against a second uploaded document |
-| `/generate` | Generate DOCX or PDF from a topic prompt |
-| `/image` | Generate image using active document or PPTX as reference context |
-| `/gallery` | Browse image gallery — search by tag, document, date; export as zip |
-| `/errors` | Run smart error detection — structured report with severity levels |
-| `/translate` | Translate active document to a target language |
-| `/quality` | Five-dimension quality scorecard with improvement notes |
-| `/summary` | Re-generate AI summary for the active document |
-| `/export` | Export session reports and chat history as DOCX or PDF bundle |
-| `/stats` | Usage statistics: documents, questions, images, tokens |
-| `/language` | Show detected language. Override with `/language set [code]` |
-| `/clear` | Clear active document and reset context (gallery preserved) |
-| `/cancel` | Cancel any in-progress operation |
-| Send a file | Upload PDF, DOCX, XLSX, or PPTX to trigger automatic analysis |
+### Web Application
+
+```bash
+python website/web_app.py
+```
+
+Open [http://localhost:5000](http://localhost:5000) in your browser.
+
+### Telegram Bot
+
+```bash
+python bot.py
+```
+
+### CLI
+
+```bash
+# Analyze a document
+python cli.py document analyze path/to/file.pdf
+
+# Generate a document
+python cli.py document generate --topic "Quarterly Report" --format docx
+
+# Generate an image
+python cli.py image generate --prompt "A mountain landscape" --style realistic
+```
+
+### Setup Verification
+
+```bash
+python setup.py
+```
+
+Runs checks on Python version, dependencies, environment variables, and directory structure.
 
 ---
 
-## REST API
+## API Endpoints
 
-All endpoints accept `multipart/form-data` for file uploads.  
-JSON responses include a `confidence` field and a `warnings[]` array for hallucination disclosures.  
-Authentication: Bearer token in the `Authorization` header.
+The web application exposes the following REST API:
 
-```
-POST   /api/analyze              Full five-stage document analysis
-POST   /api/chat                 Context-aware chatbot message
-POST   /api/compare              Structural + semantic document comparison
-POST   /api/generate/doc         Generate DOCX or PDF from prompt
-POST   /api/generate/image       Generate image with doc/ppt reference context
-POST   /api/translate            Translate document to target language
-POST   /api/errors               Smart error detection report
-POST   /api/quality              Five-dimension quality scorecard
-POST   /api/export               Export session reports as DOCX or PDF bundle
-GET    /api/gallery              List user gallery images
-GET    /api/session              Current session state and active document
-GET    /api/stats                Session usage statistics
-DELETE /api/session              Clear session context
-GET    /api/health               Service health and AI provider status
-```
-
----
-
-## Sample Analysis Output
-
-```
-Document Report
-──────────────────────────────────────────────────
-
-Language:          English (en) — 94% confidence
-Category:          Technical Report — 81% confidence
-Tags:              infrastructure, quarterly, compliance
-Error Count:       2 warnings (low), 0 critical
-
-Quality Score:     7.8 / 10  (Good)
-  Clarity          8.4
-  Grammar          9.1
-  Coherence        6.9
-  Completeness     7.0
-  Professionalism  8.2
-
-Stats:             3,410 words · 214 lines · ~14 pages
-
-── AI Analysis (grounded, confidence: 0.91) ──────
-
-Summary:           ...
-Key Points:        1. ... 2. ... 3. ... 4. ... 5. ...
-Main Insight:      ...
-Identified Gaps:   ...
-Action Items:      ...
-Hallucination Log: 0 claims flagged
-```
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/api/health` | Health check and service status |
+| `POST` | `/api/analyze` | Upload and analyze a document |
+| `POST` | `/api/ask` | Ask a question about an uploaded document |
+| `POST` | `/api/compare` | Compare two texts or documents |
+| `POST` | `/api/generate` | Generate a DOCX or PDF document |
+| `POST` | `/api/image` | Generate an image from a text prompt |
+| `POST` | `/api/language` | Detect the language of a text |
+| `POST` | `/api/categorize` | Categorize a text |
+| `POST` | `/api/quality` | Score text quality |
 
 ---
 
 ## Tech Stack
 
-| Component | Technology |
-|-----------|-----------|
-| Runtime | Python 3.10+ |
-| Telegram interface | python-telegram-bot |
-| REST API and web dashboard | FastAPI |
-| AI providers (swappable) | OpenRouter / OpenAI / Groq |
-| RAG vector indexing | sentence-transformers |
-| PDF parsing | PyPDF2 |
-| DOCX read/write | python-docx |
-| XLSX processing | openpyxl |
-| PPTX parsing and generation | python-pptx |
-| PDF generation | reportlab |
-| Language detection | langdetect |
-| Document-aware image generation | FLUX.1-Krea-dev via Hugging Face |
-| Image processing | Pillow |
+| Layer | Technology |
+|-------|-----------|
+| Frontend | HTML, CSS, Vanilla JavaScript |
+| Web Server | Flask |
+| AI Backend | OpenRouter (GPT-4o-mini default) |
+| Image Generation | Hugging Face Inference API |
+| Document Processing | PyPDF2, python-docx, openpyxl |
+| Document Creation | reportlab (PDF), python-docx (Word) |
+| Language Detection | langdetect, sentence-transformers |
+| Bot | python-telegram-bot |
+| CLI | click, tabulate |
 
 ---
 
-## Success Criteria
+## License
 
-- User uploads a messy contract → Gets instant language detection, auto-categorization, error flags, quality score, and a grounded analysis report — before typing a single command.
-
-- User asks "what are the payment terms?" → Gets an answer sourced directly from the document text with source reference and confidence score. If the document does not contain payment terms, the system says so.
-
-- User sends two contract versions → Sees exactly what text changed and what the meaning implications are — not just a diff, but a semantic change summary.
-
-- User in another country uploads a document in their language → System detects the language, processes it natively, delivers analysis in that language. No configuration needed.
-
-- User asks for an image for their presentation → System reads the active PPTX, derives relevant visual context, generates an image suited to the presentation content.
-
-- Developer wants to swap from OpenRouter to Groq → Change `AI_PROVIDER` in `.env`, restart. Done.
-
-- User accesses the system via the web dashboard → Same document intelligence, same AI engine, same session context — in a browser with drag-and-drop upload and side-by-side comparison.
-
----
-
-*Intellidoc — AI Document Intelligence System — Telegram Bot + Web Platform — Python 3.10+*
+This project is provided as-is for educational and personal use.

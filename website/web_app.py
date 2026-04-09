@@ -10,9 +10,11 @@ import os
 import sys
 import uuid
 import tempfile
+import re
+import base64
 from datetime import datetime
 
-from flask import Flask, request, jsonify, send_file, send_from_directory
+from flask import Flask, request, jsonify, send_file, send_from_directory, render_template
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 
@@ -37,6 +39,8 @@ from src.services.document_comparison import DocumentComparison
 from src.services.document_categorization import DocumentCategorization
 from src.services.language_detection import LanguageDetection
 from src.services.document_quality import DocumentQuality
+from src.services.chat_image_generator import ChatImageGenerator
+from src.handlers.image_routes import init_image_routes
 
 # ─── Setup ──────────────────────────────────────────────────
 Config.create_directories()
@@ -60,6 +64,7 @@ doc_comparison = DocumentComparison()
 doc_category = DocumentCategorization()
 lang_detection = LanguageDetection()
 doc_quality = DocumentQuality()
+chat_image_gen = ChatImageGenerator(data_dir=Config.DATA_DIR)
 
 # In-memory session store for document Q&A
 doc_sessions = {}  # session_id -> { text, chat_session_id }
@@ -67,11 +72,28 @@ doc_sessions = {}  # session_id -> { text, chat_session_id }
 logger.info("All services initialized for web app")
 
 
+def clean_markdown_text(text: str) -> str:
+    """Clean markdown artifacts for web display."""
+    if not text:
+        return ""
+    cleaned = text.replace("**", "")
+    cleaned = cleaned.replace("__", "")
+    cleaned = cleaned.replace("`", "")
+    cleaned = re.sub(r"\n{3,}", "\n\n", cleaned)
+    return cleaned.strip()
+
+
 # ─── Serve Frontend ─────────────────────────────────────────
 
 @app.route('/')
 def index():
     return send_from_directory('templates', 'index.html')
+
+
+@app.route('/hero', methods=['GET'])
+def hero_page():
+    """Serve hero component page."""
+    return render_template('hero-demo.html')
 
 
 @app.route('/static/<path:filename>')
@@ -151,6 +173,7 @@ def analyze_document():
             except Exception as ai_err:
                 logger.error(f"AI analysis failed: {ai_err}")
                 ai_analysis = f"AI analysis unavailable: {str(ai_err)[:200]}"
+            ai_analysis = clean_markdown_text(ai_analysis)
 
             # 6. Create Q&A session for this document
             session_id = str(uuid.uuid4())
@@ -204,25 +227,51 @@ def analyze_document():
 # ─── API: Document Q&A ──────────────────────────────────────
 
 @app.route('/api/ask', methods=['POST'])
-@app.route('/api/chat', methods=['POST'])
 def ask_question():
     """Ask a question about a previously analyzed document."""
     data = request.get_json() or {}
     session_id = data.get('session_id')
     question = data.get('question')
 
-    if not session_id or not question:
-        return jsonify({"error": "session_id and question are required"}), 400
-
-    session = doc_sessions.get(session_id)
-    if not session:
-        return jsonify({"error": "Session not found. Upload a document first."}), 404
+    if not question:
+        return jsonify({"error": "question is required"}), 400
 
     try:
+        normalized_question = question.lower().strip()
+        image_keywords = [
+            "image", "poster", "thumbnail", "banner", "logo", "generate pic",
+            "generate image", "create image", "make image", "photo", "illustration"
+        ]
+        if any(k in normalized_question for k in image_keywords):
+            prompt = question.strip()
+            image_path = image_gen.generate_from_prompt(prompt, style="realistic", output_dir=Config.TEMP_DIR)
+            with open(image_path, "rb") as img_file:
+                encoded = base64.b64encode(img_file.read()).decode("utf-8")
+            try:
+                os.remove(image_path)
+            except Exception:
+                pass
+            return jsonify({
+                "success": True,
+                "mode": "image",
+                "answer": "Image generated from your prompt.",
+                "image_data": f"data:image/png;base64,{encoded}",
+                "question": question,
+            })
+
+        if not session_id:
+            return jsonify({"error": "session_id is required for document Q&A"}), 400
+
+        session = doc_sessions.get(session_id)
+        if not session:
+            return jsonify({"error": "Session not found. Upload a document first."}), 404
+
         chat_session_id = session["chat_session_id"]
         answer = doc_chat.answer_question(chat_session_id, question, ai_service)
+        answer = clean_markdown_text(answer)
         return jsonify({
             "success": True,
+            "mode": "chat",
             "answer": answer,
             "question": question,
         })
@@ -300,7 +349,6 @@ def compare_documents():
 # ─── API: Document Generation ────────────────────────────────
 
 @app.route('/api/generate', methods=['POST'])
-@app.route('/api/generate/doc', methods=['POST'])
 def generate_document():
     """Generate a document from a topic."""
     data = request.get_json()
@@ -334,7 +382,6 @@ def generate_document():
 # ─── API: Image Generation ───────────────────────────────────
 
 @app.route('/api/image', methods=['POST'])
-@app.route('/api/generate/image', methods=['POST'])
 def generate_image():
     """Generate an image from a prompt."""
     data = request.get_json()
@@ -410,69 +457,91 @@ def detect_language():
     })
 
 
-@app.route('/api/errors', methods=['POST'])
-def detect_errors():
-    """Run lightweight structural/semantic warning checks."""
-    data = request.get_json() or {}
-    text = data.get('text', '')
-    session_id = data.get('session_id')
-    if not text and session_id and session_id in doc_sessions:
-        text = doc_sessions[session_id].get('text', '')
-    if not text:
-        return jsonify({"error": "Text or session_id is required"}), 400
+# ─── API: Chat Image Generation ──────────────────────────────
 
-    issues = []
-    if len(text.split()) < 100:
-        issues.append({"severity": "warning", "message": "Document appears short; completeness may be low"})
-    if "???" in text:
-        issues.append({"severity": "warning", "message": "Possible placeholder markers detected"})
-    if "TODO" in text.upper():
-        issues.append({"severity": "warning", "message": "TODO markers detected"})
-
-    return jsonify({"success": True, "issues": issues, "count": len(issues)})
-
-
-@app.route('/api/translate', methods=['POST'])
-def translate_text():
-    """Translate text or active session document."""
-    data = request.get_json() or {}
-    text = data.get('text', '')
-    session_id = data.get('session_id')
-    target_language = data.get('target_language', 'en')
-    if not text and session_id and session_id in doc_sessions:
-        text = doc_sessions[session_id].get('text', '')
-    if not text:
-        return jsonify({"error": "Text or session_id is required"}), 400
-
-    translated = lang_detection.translate(text, target_language, ai_service)
-    return jsonify({
-        "success": True,
-        "target_language": target_language,
-        "translated_text": translated,
-    })
-
-
-@app.route('/api/export', methods=['POST'])
-def export_session():
-    """Export current session payload as JSON response."""
-    data = request.get_json() or {}
-    session_id = data.get('session_id')
-    export_format = data.get('format', 'json')
-    if session_id and session_id not in doc_sessions:
-        return jsonify({"error": "Session not found"}), 404
-
-    payload = {
-        "session_id": session_id,
-        "session": doc_sessions.get(session_id) if session_id else None,
-        "stats": {
-            "sessions": len(doc_sessions),
-            "active_files": [s.get("filename") for s in doc_sessions.values()],
-        },
-        "format": export_format,
-        "exported_at": datetime.now().isoformat(),
+@app.route('/api/chat-generate-image', methods=['POST'])
+def chat_generate_image():
+    """
+    Generate image within chat session.
+    
+    Request JSON:
+    {
+        "user_id": 123456,
+        "session_id": "session_123",
+        "prompt": "a beautiful landscape",
+        "style": "realistic"
     }
-    return jsonify(payload)
+    """
+    try:
+        data = request.get_json()
+        required = ['user_id', 'session_id', 'prompt']
+        
+        if not all(field in data for field in required):
+            return jsonify({'error': 'Missing required fields: user_id, session_id, prompt'}), 400
+        
+        result = chat_image_gen.generate_image_for_chat(
+            user_id=data['user_id'],
+            session_id=data['session_id'],
+            prompt=data['prompt'],
+            style=data.get('style', 'realistic'),
+            api_provider=data.get('api_provider')
+        )
+        
+        return jsonify({'success': True, 'image': result}), 200
+    except Exception as e:
+        logger.error(f"Chat image generation error: {e}")
+        return jsonify({'error': str(e)}), 500
 
+
+@app.route('/api/chat-gallery/<int:user_id>', methods=['GET'])
+def chat_get_gallery(user_id):
+    """Get all images in user's gallery."""
+    try:
+        images = chat_image_gen.get_user_gallery(user_id)
+        return jsonify({
+            'success': True,
+            'user_id': user_id,
+            'images': images,
+            'count': len(images)
+        }), 200
+    except Exception as e:
+        logger.error(f"Error retrieving gallery: {e}")
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/chat-session-images/<session_id>', methods=['GET'])
+def chat_get_session_images(session_id):
+    """Get all images generated in a chat session."""
+    try:
+        images = chat_image_gen.get_session_images(session_id)
+        return jsonify({
+            'success': True,
+            'session_id': session_id,
+            'images': images,
+            'count': len(images)
+        }), 200
+    except Exception as e:
+        logger.error(f"Error retrieving session images: {e}")
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/image-status', methods=['GET'])
+def image_status():
+    """Get image generation status and available APIs."""
+    try:
+        return jsonify({
+            'success': True,
+            'available_apis': chat_image_gen.get_available_apis(),
+            'available_styles': chat_image_gen.get_available_styles(),
+            'status': 'ready'
+        }), 200
+    except Exception as e:
+        logger.error(f"Error getting status: {e}")
+        return jsonify({'error': str(e)}), 500
+
+
+# Initialize image generation routes
+init_image_routes(app, chat_image_gen)
 
 # ─── Error Handlers ──────────────────────────────────────────
 
