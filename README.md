@@ -1,10 +1,7 @@
 <div align="center">
-
-<img src="https://img.shields.io/badge/-%F0%9F%A7%A0%20IntelliDoc-1a1a2e?style=for-the-badge&labelColor=1a1a2e" height="60" alt="🤖 AI-Powered Office Document Automation System"/>
-
-# IntelliDoc
-
-**AI-Powered Office Document Automation System**
+ 
+# 🤖 AI-Powered Office Document Automation System
+ 
 
 > Upload PDFs, Word docs, or spreadsheets — get instant analysis, quality scoring,
 > AI summaries, contextual Q&A, image generation, and voice transcription.
