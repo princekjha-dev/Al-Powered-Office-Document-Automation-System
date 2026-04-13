@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://img.shields.io/badge/-%F0%9F%A7%A0%20IntelliDoc-1a1a2e?style=for-the-badge&labelColor=1a1a2e" height="60" alt="IntelliDoc"/>
+<img src="https://img.shields.io/badge/-%F0%9F%A7%A0%20IntelliDoc-1a1a2e?style=for-the-badge&labelColor=1a1a2e" height="60" alt="🤖 AI-Powered Office Document Automation System"/>
 
 # IntelliDoc
 
